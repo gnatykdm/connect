@@ -5,15 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/controller/logcontrollers/LogInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/controller/logcontrollers/SignController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/logviews/log.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/logviews/sign.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/profile.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/settingsview/settings.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -35,15 +56,21 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.App.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -51,6 +78,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\chatgui\view\settingsview" />
+      <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\chatgui\view\logviews" />
+      <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\chatgui\view" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -70,6 +104,7 @@
       <workItem from="1712515505383" duration="283000" />
       <workItem from="1712517225806" duration="264000" />
       <workItem from="1712517503368" duration="94000" />
+      <workItem from="1713722163538" duration="1362000" />
     </task>
     <servers />
   </component>

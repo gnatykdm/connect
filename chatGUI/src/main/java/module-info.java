@@ -13,4 +13,8 @@ module org.chatgui.chatgui {
 
     opens org.chatgui.chatgui to javafx.fxml;
     exports org.chatgui.chatgui;
+    exports org.chatgui.chatgui.controller;
+    opens org.chatgui.chatgui.controller to javafx.fxml;
+    exports org.chatgui.chatgui.controller.logcontrollers;
+    opens org.chatgui.chatgui.controller.logcontrollers to javafx.fxml;
 }
