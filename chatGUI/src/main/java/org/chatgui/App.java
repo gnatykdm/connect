@@ -1,4 +1,4 @@
-package org.chatgui.chatgui;
+package org.chatgui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/logviews/log.fxml"));
         Scene scene = new Scene(loader.load());
 
         primaryStage.setScene(scene);
