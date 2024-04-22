@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/HibernateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/hibernaterealization/IDataInteraction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/hibernaterealization/IGetData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/controller/logcontrollers/LogInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/logcontrollers/LogInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/chatgui/controller/logcontrollers/SignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/logcontrollers/SignController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/logviews/log.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/logviews/log.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/logviews/sign.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/logviews/sign.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/chatgui/chatgui/view/settingsview/settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/settingsview/settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/logviews/log.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/logviews/log.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/logviews/sign.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/chatgui/view/logviews/sign.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +100,8 @@
       <workItem from="1713723617444" duration="1965000" />
       <workItem from="1713770669958" duration="9021000" />
       <workItem from="1713805251971" duration="1076000" />
+      <workItem from="1713806911586" duration="870000" />
+      <workItem from="1713823831858" duration="146000" />
     </task>
     <servers />
   </component>

@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="720.0" style="-fx-background-color: #363B4E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chatgui.controller.logcontrollers.LogInfoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="720.0" style="-fx-background-color: #313d4b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chatgui.controller.logcontrollers.LogInfoController">
    <top>
-      <AnchorPane prefHeight="42.0" prefWidth="643.0" style="-fx-background-color: #474F7A;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="42.0" prefWidth="643.0" style="-fx-background-color: #114232;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="14.0" layoutY="12.0" text="chatFlow" textFill="#b89eff">
+            <Label layoutX="14.0" layoutY="12.0" text="chatFlow" textFill="#c1ff72">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="304.0" layoutY="12.0" text="Welcome Back!" textFill="#b89cff" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="12.0">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="6.0" text="Welcome Back!" textFill="#c1ff72" AnchorPane.bottomAnchor="6.399999999999999" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="6.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -29,7 +29,7 @@
    <bottom>
       <AnchorPane prefHeight="59.0" prefWidth="720.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="21.0" text="powered-by: gnatykdm" textFill="#eeeeee" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="21.0" text="powered-by: gnatykdm" textFill="WHITE" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -40,7 +40,7 @@
    <center>
       <VBox alignment="CENTER" prefHeight="325.0" prefWidth="720.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="log-in" textFill="#b799ff">
+            <Label text="log-in" textFill="#c1ff72">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <TextField alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="225.0" promptText="username" style="-fx-background-color: #363B4E; -fx-background-radius: 5px; -fx-border-color: #b799ff; -fx-border-radius: 10px; -fx-alignment: white;">
+            <TextField alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="225.0" promptText="username" style="-fx-background-color: #313d4b; -fx-background-radius: 5px; -fx-border-color: #c1ff72; -fx-border-radius: 10px; -fx-alignment: white;">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
@@ -56,7 +56,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <TextField alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="224.0" promptText="password" style="-fx-background-color: #363B4E; -fx-background-radius: 5px; -fx-border-color: #b799ff; -fx-border-radius: 10px;">
+            <TextField alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="224.0" promptText="password" style="-fx-background-color: #313d4b; -fx-background-radius: 5px; -fx-border-color: #c1ff72; -fx-border-radius: 10px;">
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin>
@@ -64,7 +64,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #b799ff; -fx-background-radius: 10px; -fx-text-fill: #474F7A;" text="log-in" textFill="#eeeeee">
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #00bf63; -fx-background-radius: 10px; -fx-text-fill: #ffffff;" text="log-in" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
