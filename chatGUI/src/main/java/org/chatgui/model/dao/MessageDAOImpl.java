@@ -2,7 +2,7 @@ package org.chatgui.model.dao;
 
 import org.chatgui.model.dao.daointerfaces.*;
 import org.chatgui.model.entities.MessageEntity;
-import org.chatgui.model.hibernateconfiguration.HibernateUtil;
+import org.chatgui.util.HibernateUtil;
 import org.hibernate.Session;
 
 import java.util.List;

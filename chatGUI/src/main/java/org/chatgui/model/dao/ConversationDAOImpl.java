@@ -3,7 +3,7 @@ package org.chatgui.model.dao;
 import org.chatgui.model.dao.daointerfaces.*;
 import org.hibernate.Session;
 import java.util.List;
-import org.chatgui.model.hibernateconfiguration.HibernateUtil;
+import org.chatgui.util.HibernateUtil;
 import org.chatgui.model.entities.ConversationEntity;
 
 public class ConversationDAOImpl implements IDeleteDAO<ConversationEntity>, IGetDAO<ConversationEntity>, IRegisterDAO<ConversationEntity> {
