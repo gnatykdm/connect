@@ -1,7 +1,11 @@
 package org.chatgui.util;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
+import java.util.Properties;
 
 public class HibernateUtil {
 
@@ -9,7 +13,14 @@ public class HibernateUtil {
 
     static {
         try {
-            sessionFactory = new Configuration().configure().buildSessionFactory();
+            Properties properties = new Properties();
+            properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("database.properties"));
+
+            Configuration configuration = new Configuration();
+            configuration.setProperties(properties);
+
+            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);

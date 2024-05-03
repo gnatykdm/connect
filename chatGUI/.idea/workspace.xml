@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/ConversationDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/ConversationDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/MessageDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/MessageDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/ParticipantDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/ParticipantDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/util/HibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/util/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/util/HibernateUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +125,7 @@
       <workItem from="1714766300413" duration="4491000" />
       <workItem from="1714771666994" duration="2452000" />
       <workItem from="1714775167685" duration="52000" />
+      <workItem from="1714776661220" duration="1099000" />
     </task>
     <servers />
   </component>
