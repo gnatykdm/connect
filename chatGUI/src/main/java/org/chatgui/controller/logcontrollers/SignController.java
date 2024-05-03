@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import lombok.Getter;
-import org.chatgui.model.UserEntity;
 
 public class SignController {
     @FXML
@@ -31,6 +30,7 @@ public class SignController {
         email = userEmail.getText();
         birthDate = userBirthDate.getText();
         password = userPassword.getText();
+
 
         UserEntity user = new UserEntity(name, birthDate, email, password);
     }

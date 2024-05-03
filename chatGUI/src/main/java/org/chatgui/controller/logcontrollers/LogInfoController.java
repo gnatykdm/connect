@@ -33,5 +33,13 @@ public class LogInfoController {
     private Stage stage;
 
     public void logIn(ActionEvent event) throws IOException {
+        name = userName.getText();
+        pass = userPassword.getText();
+
+        loader = new FXMLLoader(getClass().getResource("/org/chatgui/view/home.fxml"));
+        scene = new Scene(loader.load());
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

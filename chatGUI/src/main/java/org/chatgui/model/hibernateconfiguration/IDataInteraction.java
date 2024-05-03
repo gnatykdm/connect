@@ -1,4 +1,4 @@
-package org.chatgui.model.hibernateconfiguration.hibernaterealization;
+package org.chatgui.model.hibernateconfiguration;
 
 public interface IDataInteraction {
     void saveData(Object object);
