@@ -5,32 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/conversation/ConversationDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/conversation/IConversationDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/message/IMessageDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/message/MessageDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/participant/IParticipantDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/participant/ParticipantDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/user/IUserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/user/UserDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/entities/ConversationEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/entities/MessageEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/entities/ParticipantEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/entities/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/script.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/daointerfaces/IDeleteDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/daointerfaces/IGetDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/daointerfaces/IRegisterDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/chatgui/model/dao/ConversationDAOImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/chatgui/model/dao/MessageDAOImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/chatgui/model/dao/ParticipantDAOImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/chatgui/model/dao/UserDAOImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/logcontrollers/LogInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/logcontrollers/LogInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/logcontrollers/SignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/controller/logcontrollers/SignController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/UserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/HibernateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/HibernateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/hibernaterealization/IDataInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/IDataInteraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/hibernaterealization/IGetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/IGetData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/conversation/ConversationDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/ConversationDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/conversation/IConversationDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/message/IMessageDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/message/MessageDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/MessageDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/participant/IParticipantDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/participant/ParticipantDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/ParticipantDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/user/IUserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/user/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chatgui/model/dao/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/HibernateController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/IDataInteraction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chatgui/model/hibernateconfiguration/IGetData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/chatgui/model/hibernateconfiguration/HibernateControllerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +41,8 @@
         <option value="spring-beans.schema" />
         <option value="FxmlFile" />
         <option value="package.json" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
       </list>
     </option>
@@ -79,6 +77,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -108,6 +107,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.chatgui.model.dao" />
       <recent name="org.chatgui.model.hibernateconfiguration" />
     </key>
   </component>
@@ -141,6 +141,7 @@
       <workItem from="1714216612323" duration="25000" />
       <workItem from="1714391646562" duration="1385000" />
       <workItem from="1714766300413" duration="4491000" />
+      <workItem from="1714771666994" duration="2452000" />
     </task>
     <servers />
   </component>
