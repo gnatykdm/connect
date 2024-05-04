@@ -32,7 +32,7 @@ public class LogInfoController {
     @NotNull
     private Stage stage;
 
-    public void logIn(ActionEvent event) throws IOException {
+    public void submit(ActionEvent event) throws IOException {
         name = userName.getText();
         pass = userPassword.getText();
 

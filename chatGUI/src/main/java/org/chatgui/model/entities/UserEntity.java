@@ -26,7 +26,7 @@ public class UserEntity {
     private String userName;
 
     @NotNull
-    @Column(name = "password")
+    @Column(name = "password_hash")
     @Size(min = 5, message = "Password should be at least 5 characters long")
     private String userPassword;
 
@@ -36,6 +36,7 @@ public class UserEntity {
     private String userEmail;
 
     @NotNull
+    @Column(name = "created_at")
     private LocalDate creationDate;
 
     public UserEntity(String userName, String userPassword, String userEmail, LocalDate creationDate) {

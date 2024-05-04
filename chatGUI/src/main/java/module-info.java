@@ -21,5 +21,6 @@ module org.chatgui.chatgui {
     exports org.chatgui.controller;
     opens org.chatgui.controller to javafx.fxml;
     exports org.chatgui.controller.logcontrollers;
+    opens org.chatgui.model.entities to org.hibernate.orm.core;
     opens org.chatgui.controller.logcontrollers to javafx.fxml;
 }
