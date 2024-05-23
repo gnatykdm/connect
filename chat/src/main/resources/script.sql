@@ -1,31 +1,18 @@
 -- Creating Table of users
-CREATE TABLE Users (
-          user_id SERIAL PRIMARY KEY,
-          username VARCHAR(255) NOT NULL,
-          password_hash VARCHAR(255) NOT NULL,
-          email VARCHAR(255) NOT NULL,
-          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(50) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL
 );
 
--- Creating Table of Conversations
-CREATE TABLE Conversations (
-          conversation_id SERIAL PRIMARY KEY,
-          conversation_name VARCHAR(255),
-          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Creating Table of Messages
-CREATE TABLE Messages (
+CREATE TABLE messages (
         message_id SERIAL PRIMARY KEY,
-        conversation_id INT REFERENCES Conversations(conversation_id),
-        sender_id INT REFERENCES Users(user_id),
-        message_text TEXT NOT NULL,
-        sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        sender_id INT NOT NULL,
+        receiver_id INT NOT NULL,
+        content TEXT NOT NULL,
+        sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (sender_id) REFERENCES users(id),
+        FOREIGN KEY (receiver_id) REFERENCES users(id)
 );
 
--- Creating Table of Participants
-CREATE TABLE Participants (
-        participant_id SERIAL PRIMARY KEY,
-        conversation_id INT REFERENCES Conversations(conversation_id),
-        user_id INT REFERENCES Users(user_id)
-);

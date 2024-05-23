@@ -3,10 +3,10 @@ package org.connect.model.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 @Data
 @Entity
@@ -15,34 +15,29 @@ import java.time.LocalDate;
 public class UserEntity {
 
     @Id
-    @NotNull
-    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    @Column(name = "id")
+    private Long id;
 
     @NotNull
-    @Column(name = "username")
-    @Size(min = 4, message = "Name should be at least 4 characters long")
-    private String userName;
-
-    @NotNull
-    @Column(name = "password_hash")
-    @Size(min = 5, message = "Password should be at least 5 characters long")
-    private String userPassword;
+    @Size(min = 4, message = "Username can't be less than 4 characters")
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
 
     @Email
     @NotNull
-    @Column(name = "email")
-    private String userEmail;
+    @Size(min = 4, message = "Email can't be less than 4 characters")
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
     @NotNull
-    @Column(name = "created_at")
-    private LocalDate creationDate;
+    @Size(min = 3, message = "Password can't be less than 3 characters")
+    @Column(name = "password", nullable = false)
+    private String password;
 
-    public UserEntity(String userName, String userPassword, String userEmail, LocalDate creationDate) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userEmail = userEmail;
-        this.creationDate = creationDate;
+    public UserEntity(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 }

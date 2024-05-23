@@ -6,8 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lombok.Getter;
-import org.connect.services.validation.ICheckUserDAO;
-import org.connect.services.validation.UserCheckDAOImpl;
+
 import java.io.IOException;
 
 public class LogInfoController {
@@ -39,15 +38,6 @@ public class LogInfoController {
     }
 
     public void submit(ActionEvent event) throws IOException {
-        name = userName.getText();
-        pass = userPassword.getText();
 
-        ICheckUserDAO userCheckDAO = new UserCheckDAOImpl();
-        if (! (userCheckDAO.checkUserName(name) && userCheckDAO.checkUserPassword(pass))) {
-            System.out.println("Incorrect username or password");
-            dataValidator.setText("Incorrect username or password");
-        } else {
-            System.out.println("You are logining in as: " + name + " " + pass);
-        }
     }
 }

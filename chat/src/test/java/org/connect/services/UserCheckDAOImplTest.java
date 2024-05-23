@@ -1,10 +1,7 @@
 package org.connect.services;
 
-import org.connect.services.validation.UserCheckDAOImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserCheckDAOImplTest {
 
