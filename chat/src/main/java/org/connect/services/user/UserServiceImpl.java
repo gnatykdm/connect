@@ -3,9 +3,11 @@ package org.connect.services.user;
 import org.connect.model.dao.user.UserDAOImpl;
 import org.connect.model.entities.UserEntity;
 
+import java.util.List;
+
 public class UserServiceImpl implements IUserService {
 
-    private UserDAOImpl userDAO;
+    private UserDAOImpl userDAO = new UserDAOImpl();
 
     @Override
     public void connect(UserEntity user) {
@@ -18,7 +20,19 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public boolean checkUserData(UserEntity user) {
-        return false;
+    public boolean checkUserSignData(String name, String email) {
+        List<UserEntity> userList = userDAO.getAll();
+
+        return userList.stream()
+                .anyMatch(user -> user.getUsername().equalsIgnoreCase(name)
+                        || user.getEmail().equalsIgnoreCase(email));
+    }
+
+    @Override
+    public boolean checkUserLoginData(String name, String password) {
+        List<UserEntity> userList = userDAO.getAll();
+
+        return userList.stream().anyMatch(user -> user.getUsername().equalsIgnoreCase(name)
+                && user.getPassword().equalsIgnoreCase(password));
     }
 }

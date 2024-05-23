@@ -2,19 +2,15 @@ package org.connect.controller.logcontrollers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import org.connect.model.dao.user.UserDAOImpl;
+import lombok.Getter;
 import org.connect.model.entities.UserEntity;
+import org.connect.services.user.IUserService;
+import org.connect.services.user.UserServiceImpl;
 
-import java.io.IOException;
-import java.time.LocalDate;
 
 public class SignController {
     @FXML
@@ -28,14 +24,12 @@ public class SignController {
     @FXML
     private Label dataValidator;
 
+    @Getter
     private String name;
+    @Getter
     private String email;
+    @Getter
     private String password;
-
-    private final UserDAOImpl userDAO = new UserDAOImpl();
-
-    private Stage stage;
-    private Scene scene;
 
     private static final String BUTTON_HOVER_STYLE = "-fx-background-color: #969de2; -fx-background-radius: 10px;";
     private static final String BUTTON_DEFAULT_STYLE = "-fx-background-color: #8379e7; -fx-background-radius: 10px;";
@@ -48,12 +42,28 @@ public class SignController {
 
     @FXML
     public void submit(ActionEvent event) {
+        String name = userName.getText();
+        String email = userEmail.getText();
+        String password = userPassword.getText();
 
-    }
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            dataValidator.setStyle("-fx-text-fill: #ff0000");
+            dataValidator.setText("All fields are required.");
+            return;
+        }
 
-    private boolean isInputValid() {
-        return name != null && !name.isEmpty() &&
-                email != null && !email.isEmpty() &&
-                password != null && !password.isEmpty();
+        IUserService userService = new UserServiceImpl();
+
+        if (!userService.checkUserSignData(name, email)) {
+            UserEntity newUser = new UserEntity(name, email, password);
+            userService.connect(newUser);
+
+            System.out.println("**User was registered to the database");
+            dataValidator.setStyle("-fx-text-fill: #c1ff72");
+            dataValidator.setText("Successfully registered " + name + "!");
+        } else {
+            dataValidator.setStyle("-fx-text-fill: #ff0000");
+            dataValidator.setText("User already exists.");
+        }
     }
 }

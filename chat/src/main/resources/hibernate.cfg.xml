@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:postgresql://localhost:5432/chatflow</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/connectdb</property>
     <property name="connection.username">postgres</property>
     <property name="connection.password">0110</property>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
@@ -13,7 +13,5 @@
 
     <mapping class="org.connect.model.entities.UserEntity"/>
     <mapping class="org.connect.model.entities.MessageEntity"/>
-    <mapping class="org.connect.model.entities.ParticipantEntity"/>
-    <mapping class="org.connect.model.entities.ConversationEntity"/>
   </session-factory>
 </hibernate-configuration>

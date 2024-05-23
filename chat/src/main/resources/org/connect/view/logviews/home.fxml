@@ -15,7 +15,7 @@
     <top>
         <HBox prefHeight="57.0" prefWidth="900.0" style="-fx-background-color: #2b2b2b;">
             <children>
-                <Label text="chatFlow" textFill="#c1ff72">
+                <Label text="connect" textFill="#c1ff72">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
