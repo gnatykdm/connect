@@ -1,10 +1,10 @@
-package com.connectserver;
+package com.connect.connect;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ConnectserverApplicationTests {
+class ConnectApplicationTests {
 
 	@Test
 	void contextLoads() {
