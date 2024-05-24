@@ -5,69 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/copilot/chatSessions/blobs/version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/copilot/chatSessions/xd.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935/storage_v2/_src_/database/chatflow.hii1VQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935/storage_v2/_src_/database/chatflow.hii1VQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/controller/MainController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/controller/logcontrollers/LogInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/controller/logcontrollers/SignController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/dao/conversation/ConversationDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/dao/daointerfaces/IDeleteDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/dao/daointerfaces/IGetDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/dao/daointerfaces/IRegisterDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/dao/message/MessageDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/dao/participant/ParticipantDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/dao/user/IUserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/dao/user/UserDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/entities/ConversationEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/entities/MessageEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/entities/ParticipantEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/model/entities/UserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/services/checkservice/ICheckUserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/services/checkservice/UserCheckDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/java/org/chatgui/util/HibernateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/resources/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/resources/org/chatgui/view/home.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/resources/org/chatgui/view/logviews/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/resources/org/chatgui/view/logviews/sign.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/resources/org/chatgui/view/profile.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/resources/org/chatgui/view/settingsview/settings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/main/resources/script.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/test/java/org/chatgui/model/dao/ConversationDAOImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/test/java/org/chatgui/model/dao/MessageDAOImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/test/java/org/chatgui/model/dao/ParticipantDAOImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/test/java/org/chatgui/model/dao/UserDAOImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatGUI/src/test/java/org/chatgui/services/UserCheckDAOImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/compose.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/src/main/java/org/chatweb/chatweb/ChatWebApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/src/test/java/org/chatweb/chatweb/ChatWebApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chatWeb/src/test/java/org/chatweb/chatweb/TestChatWebApplication.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/connect/util/WebSocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4caba905-9151-4ea6-a944-65507b0740f9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4caba905-9151-4ea6-a944-65507b0740f9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/script.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +70,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/chatFlow/chatGUI&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/connect/chat&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -287,6 +234,8 @@
       <workItem from="1716480690377" duration="108000" />
       <workItem from="1716480846429" duration="480000" />
       <workItem from="1716481618461" duration="20000" />
+      <workItem from="1716492511747" duration="303000" />
+      <workItem from="1716576166213" duration="649000" />
     </task>
     <servers />
   </component>

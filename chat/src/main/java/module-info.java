@@ -12,10 +12,16 @@ module org.chatgui.chatgui {
     requires com.almasb.fxgl.all;
     requires static lombok;
     requires jakarta.persistence;
-    requires java.validation;
     requires org.hibernate.orm.core;
     requires java.naming;
 
+    // Adding Spring Framework modules
+    requires spring.context;
+    requires spring.web;
+    requires spring.websocket;
+    requires spring.messaging;
+
+    // Opening packages to javafx.fxml and hibernate.orm.core
     opens org.connect to javafx.fxml;
     exports org.connect;
     exports org.connect.controller;

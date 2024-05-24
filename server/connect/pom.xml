@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.connect</groupId>
-	<artifactId>connect</artifactId>
+	<artifactId>connectserver</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>connect</name>
 	<description>Demo project for Spring Boot</description>
