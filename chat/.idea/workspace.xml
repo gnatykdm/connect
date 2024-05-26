@@ -5,16 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/connect/util/WebSocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4caba905-9151-4ea6-a944-65507b0740f9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4caba905-9151-4ea6-a944-65507b0740f9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/connect/util/HttpRequestClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/controller/request/MessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/friends/FriendShipDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/friends/IFriendShipDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dto/MessageRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/entity/Friendship.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/service/friends/FriendShipService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/service/friends/IFriendshipService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9165898c-a6a9-47f0-9322-e62cf8deeb9d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9165898c-a6a9-47f0-9322-e62cf8deeb9d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9165898c-a6a9-47f0-9322-e62cf8deeb9d/storage_v2/_src_/database/connectdb.6PJ53Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9165898c-a6a9-47f0-9322-e62cf8deeb9d/storage_v2/_src_/database/connectdb.6PJ53Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/connect/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/connect/controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/controller/logcontrollers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/connect/controller/logcontrollers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/controller/logcontrollers/SignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/connect/controller/logcontrollers/SignController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/model/dao/daointerfaces/IDeleteDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/model/dao/daointerfaces/IGetDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/model/dao/daointerfaces/IRegisterDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/model/dao/message/MessageDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/model/dao/user/UserDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/model/entities/MessageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/connect/model/entities/MessageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/model/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/connect/model/entities/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/services/IMessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/services/user/IUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/services/user/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/connect/util/WebSocketClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/connect/view/logviews/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/connect/view/logviews/home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/script.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/connect/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/message/IMessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/message/IMessageDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/message/MessageDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/message/MessageDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/user/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/user/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/user/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/dao/user/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/entity/MessageEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/entity/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/service/IMessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/model/service/MessageServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/java/com/connect/connect/util/WebSocketUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/test/java/com/connect/connect/ConnectApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/connect/src/test/java/com/connect/connect/ConnectApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/connect/src/test/java/com/connect/connect/controller/MainControllerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +277,20 @@
       <workItem from="1716480846429" duration="480000" />
       <workItem from="1716481618461" duration="20000" />
       <workItem from="1716492511747" duration="303000" />
-      <workItem from="1716576166213" duration="649000" />
+      <workItem from="1716576166213" duration="1065000" />
+      <workItem from="1716661331468" duration="866000" />
+      <workItem from="1716662321896" duration="302000" />
+      <workItem from="1716663227704" duration="99000" />
+      <workItem from="1716663642921" duration="150000" />
+      <workItem from="1716664937092" duration="301000" />
+      <workItem from="1716665530530" duration="836000" />
+      <workItem from="1716666392073" duration="191000" />
+      <workItem from="1716714905178" duration="1488000" />
+      <workItem from="1716716735377" duration="23000" />
+      <workItem from="1716716809003" duration="59000" />
+      <workItem from="1716718805704" duration="87000" />
+      <workItem from="1716752370559" duration="1040000" />
+      <workItem from="1716758966375" duration="39000" />
     </task>
     <servers />
   </component>

@@ -3,8 +3,6 @@ package org.connect.model.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
@@ -26,11 +24,9 @@ public class MessageEntity {
     @JoinColumn(name = "receiver_id", referencedColumnName = "id")
     private UserEntity receiver;
 
-    @NotNull
     @Column(name = "content", nullable = false)
     private String content;
 
-    @NotNull
     @Column(name = "sent_at", nullable = false)
     private LocalDateTime sentAt;
 

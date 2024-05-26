@@ -3,9 +3,17 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1272</IntrospectionStateNumber>
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G</Grants>
+      <IntrospectionStateNumber>1287</IntrospectionStateNumber>
       <ServerVersion>16.2</ServerVersion>
-      <StartupTime>1716308072</StartupTime>
+      <StartupTime>1716712027</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -800,7 +808,7 @@ false Zulu
 14643||10|C|G
 14643||-9223372036854775808|U|G
 14643||10|U|G</Grants>
-      <IntrospectionStateNumber>1272</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1287</IntrospectionStateNumber>
       <ObjectId>41558</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4244,43 +4252,43 @@ false Zulu
     <schema id="269" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1272</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-05-23.19:32:23</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1287</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-05-26.09:19:09</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="270" parent="269" name="messages_message_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>41568</ObjectId>
+      <ObjectId>49729</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1281</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="271" parent="269" name="users_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>41559</ObjectId>
+      <ObjectId>49720</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1280</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <table id="272" parent="269" name="friendships">
-      <ObjectId>41641</ObjectId>
-      <StateNumber>1271</StateNumber>
+      <ObjectId>49751</ObjectId>
+      <StateNumber>1284</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="273" parent="269" name="messages">
-      <ObjectId>41569</ObjectId>
-      <StateNumber>1256</StateNumber>
+      <ObjectId>49730</ObjectId>
+      <StateNumber>1281</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="274" parent="269" name="users">
-      <ObjectId>41560</ObjectId>
-      <StateNumber>1258</StateNumber>
+      <ObjectId>49721</ObjectId>
+      <StateNumber>1281</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4288,195 +4296,201 @@ false Zulu
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1271</StateNumber>
+      <StateNumber>1284</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="276" parent="272" name="user2_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1271</StateNumber>
+      <StateNumber>1284</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="277" parent="272" name="friendships_user1_id_fkey">
       <ColNames>user1_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41646</ObjectId>
-      <StateNumber>1271</StateNumber>
+      <ObjectId>49756</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1284</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>41560</RefTableId>
+      <RefTableId>49721</RefTableId>
     </foreign-key>
     <foreign-key id="278" parent="272" name="friendships_user2_id_fkey">
       <ColNames>user2_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41651</ObjectId>
-      <StateNumber>1271</StateNumber>
+      <ObjectId>49761</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1284</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>41560</RefTableId>
+      <RefTableId>49721</RefTableId>
     </foreign-key>
     <index id="279" parent="272" name="friendships_pkey">
       <ColNames>user1_id
 user2_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41644</ObjectId>
+      <ObjectId>49754</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1271</StateNumber>
+      <StateNumber>1284</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="280" parent="272" name="friendships_pkey">
+    <index id="280" parent="272" name="idx_user1_id">
+      <ColNames>user1_id</ColNames>
+      <ObjectId>49766</ObjectId>
+      <StateNumber>1285</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="281" parent="272" name="idx_user2_id">
+      <ColNames>user2_id</ColNames>
+      <ObjectId>49767</ObjectId>
+      <StateNumber>1286</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="282" parent="272" name="friendships_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41645</ObjectId>
+      <ObjectId>49755</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1271</StateNumber>
-      <UnderlyingIndexId>41644</UnderlyingIndexId>
+      <StateNumber>1284</StateNumber>
+      <UnderlyingIndexId>49754</UnderlyingIndexId>
     </key>
-    <column id="281" parent="273" name="message_id">
-      <DasType>bigint|0s</DasType>
+    <column id="283" parent="273" name="message_id">
+      <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;messages_message_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1254</StateNumber>
-      <SequenceId>41568</SequenceId>
-      <TypeId>20</TypeId>
+      <StateNumber>1281</StateNumber>
+      <SequenceId>49729</SequenceId>
+      <TypeId>23</TypeId>
     </column>
-    <column id="282" parent="273" name="sender_id">
-      <DasType>bigint|0s</DasType>
+    <column id="284" parent="273" name="sender_id">
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1256</StateNumber>
-      <TypeId>20</TypeId>
+      <StateNumber>1281</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <column id="283" parent="273" name="receiver_id">
-      <DasType>bigint|0s</DasType>
+    <column id="285" parent="273" name="receiver_id">
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1255</StateNumber>
-      <TypeId>20</TypeId>
+      <StateNumber>1281</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <column id="284" parent="273" name="content">
+    <column id="286" parent="273" name="content">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1281</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="285" parent="273" name="sent_at">
+    <column id="287" parent="273" name="sent_at">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>5</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1281</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <foreign-key id="286" parent="273" name="messages_sender_id_fkey">
+    <foreign-key id="288" parent="273" name="messages_sender_id_fkey">
       <ColNames>sender_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41627</ObjectId>
-      <StateNumber>1257</StateNumber>
+      <ObjectId>49739</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1281</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>41560</RefTableId>
+      <RefTableId>49721</RefTableId>
     </foreign-key>
-    <foreign-key id="287" parent="273" name="messages_receiver_id_fkey">
+    <foreign-key id="289" parent="273" name="messages_receiver_id_fkey">
       <ColNames>receiver_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41622</ObjectId>
-      <StateNumber>1257</StateNumber>
+      <ObjectId>49744</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1281</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>41560</RefTableId>
+      <RefTableId>49721</RefTableId>
     </foreign-key>
-    <index id="288" parent="273" name="messages_pkey">
+    <index id="290" parent="273" name="messages_pkey">
       <ColNames>message_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41589</ObjectId>
+      <ObjectId>49737</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1281</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="289" parent="273" name="messages_pkey">
+    <index id="291" parent="273" name="idx_sender_id">
+      <ColNames>sender_id</ColNames>
+      <ObjectId>49749</ObjectId>
+      <StateNumber>1282</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="292" parent="273" name="idx_receiver_id">
+      <ColNames>receiver_id</ColNames>
+      <ObjectId>49750</ObjectId>
+      <StateNumber>1283</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="293" parent="273" name="messages_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41590</ObjectId>
+      <ObjectId>49738</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1254</StateNumber>
-      <UnderlyingIndexId>41589</UnderlyingIndexId>
+      <StateNumber>1281</StateNumber>
+      <UnderlyingIndexId>49737</UnderlyingIndexId>
     </key>
-    <column id="290" parent="274" name="id">
-      <DasType>bigint|0s</DasType>
+    <column id="294" parent="274" name="id">
+      <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1257</StateNumber>
-      <SequenceId>41559</SequenceId>
-      <TypeId>20</TypeId>
+      <StateNumber>1280</StateNumber>
+      <SequenceId>49720</SequenceId>
+      <TypeId>23</TypeId>
     </column>
-    <column id="291" parent="274" name="username">
+    <column id="295" parent="274" name="username">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1280</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="292" parent="274" name="password">
+    <column id="296" parent="274" name="password">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1280</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="293" parent="274" name="email">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>1258</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="294" parent="274" name="users_pkey">
+    <index id="297" parent="274" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41620</ObjectId>
+      <ObjectId>49725</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1257</StateNumber>
+      <StateNumber>1280</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="295" parent="274" name="users_username_key">
+    <index id="298" parent="274" name="users_username_key">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41566</ObjectId>
-      <StateNumber>1257</StateNumber>
+      <ObjectId>49727</ObjectId>
+      <StateNumber>1280</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="296" parent="274" name="uk_6dotkott2kjsp8vw4d0m25fb7">
-      <ColNames>email</ColNames>
-      <ObjectId>41639</ObjectId>
-      <StateNumber>1260</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationNames>default</CollationNames>
-      <CollationIds>100</CollationIds>
-      <CollationParentNames>pg_catalog</CollationParentNames>
-    </index>
-    <key id="297" parent="274" name="users_pkey">
+    <key id="299" parent="274" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41621</ObjectId>
+      <ObjectId>49726</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1257</StateNumber>
-      <UnderlyingIndexId>41620</UnderlyingIndexId>
+      <StateNumber>1280</StateNumber>
+      <UnderlyingIndexId>49725</UnderlyingIndexId>
     </key>
-    <key id="298" parent="274" name="users_username_key">
+    <key id="300" parent="274" name="users_username_key">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41567</ObjectId>
-      <StateNumber>1251</StateNumber>
-      <UnderlyingIndexId>41566</UnderlyingIndexId>
-    </key>
-    <key id="299" parent="274" name="uk_6dotkott2kjsp8vw4d0m25fb7">
-      <ObjectId>41640</ObjectId>
-      <StateNumber>1260</StateNumber>
-      <UnderlyingIndexId>41639</UnderlyingIndexId>
+      <ObjectId>49728</ObjectId>
+      <StateNumber>1280</StateNumber>
+      <UnderlyingIndexId>49727</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

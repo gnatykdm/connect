@@ -8,8 +8,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import lombok.Getter;
 import org.connect.model.entities.UserEntity;
-import org.connect.services.user.IUserService;
-import org.connect.services.user.UserServiceImpl;
 
 
 public class SignController {
@@ -42,28 +40,6 @@ public class SignController {
 
     @FXML
     public void submit(ActionEvent event) {
-        String name = userName.getText();
-        String email = userEmail.getText();
-        String password = userPassword.getText();
 
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            dataValidator.setStyle("-fx-text-fill: #ff0000");
-            dataValidator.setText("All fields are required.");
-            return;
-        }
-
-        IUserService userService = new UserServiceImpl();
-
-        if (!userService.checkUserSignData(name, email)) {
-            UserEntity newUser = new UserEntity(name, email, password);
-            userService.connect(newUser);
-
-            System.out.println("**User was registered to the database");
-            dataValidator.setStyle("-fx-text-fill: #c1ff72");
-            dataValidator.setText("Successfully registered " + name + "!");
-        } else {
-            dataValidator.setStyle("-fx-text-fill: #ff0000");
-            dataValidator.setText("User already exists.");
-        }
     }
 }

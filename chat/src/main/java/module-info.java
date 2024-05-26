@@ -15,11 +15,13 @@ module org.chatgui.chatgui {
     requires org.hibernate.orm.core;
     requires java.naming;
 
-    // Adding Spring Framework modules
-    requires spring.context;
-    requires spring.web;
-    requires spring.websocket;
+    // WebSocket API
+    requires javax.websocket.api;
+
+    // Spring Messaging
     requires spring.messaging;
+    requires spring.websocket;
+    requires spring.context;
 
     // Opening packages to javafx.fxml and hibernate.orm.core
     opens org.connect to javafx.fxml;
@@ -29,6 +31,4 @@ module org.chatgui.chatgui {
     exports org.connect.controller.logcontrollers;
     opens org.connect.model.entities to org.hibernate.orm.core;
     opens org.connect.controller.logcontrollers to javafx.fxml;
-    exports org.connect.controller.settings;
-    opens org.connect.controller.settings to javafx.fxml;
 }
