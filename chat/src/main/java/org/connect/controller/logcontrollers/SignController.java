@@ -1,3 +1,4 @@
+
 package org.connect.controller.logcontrollers;
 
 import javafx.event.ActionEvent;
@@ -6,28 +7,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import lombok.Getter;
-import org.connect.model.entities.UserEntity;
-
+import org.connect.controller.logcontrollers.requests.UserRequestClient;
+import org.connect.model.entities.User;
 
 public class SignController {
+
     @FXML
     private TextField userName;
-    @FXML
-    private TextField userEmail;
     @FXML
     private PasswordField userPassword;
     @FXML
     private Button submitButton;
     @FXML
     private Label dataValidator;
-
-    @Getter
-    private String name;
-    @Getter
-    private String email;
-    @Getter
-    private String password;
 
     private static final String BUTTON_HOVER_STYLE = "-fx-background-color: #969de2; -fx-background-radius: 10px;";
     private static final String BUTTON_DEFAULT_STYLE = "-fx-background-color: #8379e7; -fx-background-radius: 10px;";
@@ -40,6 +32,22 @@ public class SignController {
 
     @FXML
     public void submit(ActionEvent event) {
+        String name = userName.getText();
+        String password = userPassword.getText();
 
+        UserRequestClient userRequestClient = new UserRequestClient();
+        try {
+            User user = new User();
+            user.setUsername(name);
+            user.setPassword(password);
+
+            userRequestClient.sendPostRequest(user);
+            dataValidator.setText("User registered successfully!");
+            dataValidator.setStyle("-fx-text-fill: green;");
+        } catch (Exception e) {
+            dataValidator.setText("Registration failed: " + e.getMessage());
+            dataValidator.setStyle("-fx-text-fill: red;");
+            e.printStackTrace();
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.connect.connect.model.entity;
+package org.connect.model.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,16 +23,18 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Message> sentMessages;
 
-    @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Message> receivedMessages;
 
     @ManyToMany
-    @JoinTable(name = "friendships",
+    @JoinTable(
+            name = "friendships",
             joinColumns = @JoinColumn(name = "user1_id"),
-            inverseJoinColumns = @JoinColumn(name = "user2_id"))
+            inverseJoinColumns = @JoinColumn(name = "user2_id")
+    )
     private Set<User> friends;
 
     public User(String username, String password) {

@@ -20,8 +20,8 @@ public class MessageController {
     @Autowired
     private IUserService userService;
 
-    @PostMapping("/send/{senderId}/{receiverId}")
-    public ResponseEntity<Message> sendMessage(@PathVariable Integer senderId, @PathVariable Integer receiverId, @RequestBody String content) {
+    @PostMapping("/send/{senderId}/{receiverId}/{content}")
+    public ResponseEntity<Message> sendMessage(@PathVariable Integer senderId, @PathVariable Integer receiverId, @RequestParam String content) {
         messageService.sendMessage(senderId, receiverId, content);
 
         User sender = userService.getUserById(senderId);

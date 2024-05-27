@@ -26,4 +26,6 @@ public interface IUserService {
     boolean areFriends(Integer user1Id, Integer user2Id);
 
     User getUserByUsernameAndPassword(String username, String password);
+
+    void createUserByUserNameAndPassword(String username, String password);
 }

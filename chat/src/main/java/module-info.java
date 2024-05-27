@@ -15,20 +15,16 @@ module org.chatgui.chatgui {
     requires org.hibernate.orm.core;
     requires java.naming;
 
-    // WebSocket API
-    requires javax.websocket.api;
+    requires java.sql;
+    requires com.fasterxml.jackson.databind;
 
-    // Spring Messaging
-    requires spring.messaging;
-    requires spring.websocket;
-    requires spring.context;
-
-    // Opening packages to javafx.fxml and hibernate.orm.core
     opens org.connect to javafx.fxml;
     exports org.connect;
     exports org.connect.controller;
     opens org.connect.controller to javafx.fxml;
+    exports org.connect.model.entities to com.fasterxml.jackson.databind;
     exports org.connect.controller.logcontrollers;
+    exports org.connect.model.dto to com.fasterxml.jackson.databind;
     opens org.connect.model.entities to org.hibernate.orm.core;
     opens org.connect.controller.logcontrollers to javafx.fxml;
 }

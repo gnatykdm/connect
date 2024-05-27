@@ -3,26 +3,27 @@ package org.connect.model.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 @NoArgsConstructor
 @Table(name = "messages")
-public class MessageEntity {
-
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "message_id")
-    private Long messageId;
+    private Integer messageId;
 
     @ManyToOne
-    @JoinColumn(name = "sender_id", referencedColumnName = "id")
-    private UserEntity sender;
+    @JoinColumn(name = "sender_id", nullable = false)
+    private User sender;
 
     @ManyToOne
-    @JoinColumn(name = "receiver_id", referencedColumnName = "id")
-    private UserEntity receiver;
+    @JoinColumn(name = "receiver_id", nullable = false)
+    private User receiver;
 
     @Column(name = "content", nullable = false)
     private String content;
@@ -30,10 +31,10 @@ public class MessageEntity {
     @Column(name = "sent_at", nullable = false)
     private LocalDateTime sentAt;
 
-    public MessageEntity(UserEntity sender, UserEntity receiver, String content, LocalDateTime sentAt) {
+    public Message(User sender, User receiver, String content, LocalDate sentAt) {
         this.sender = sender;
         this.receiver = receiver;
         this.content = content;
-        this.sentAt = sentAt;
+        this.sentAt = sentAt.atStartOfDay();
     }
 }
