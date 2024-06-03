@@ -17,15 +17,5 @@ public interface IUserService {
 
     List<User> getAllUsers();
 
-    List<User> getAllFriends(Integer userId);
-
-    void addFriendship(Integer user1Id, Integer user2Id);
-
-    void removeFriendship(Integer user1Id, Integer user2Id);
-
-    boolean areFriends(Integer user1Id, Integer user2Id);
-
-    User getUserByUsernameAndPassword(String username, String password);
-
-    void createUserByUserNameAndPassword(String username, String password);
+    boolean loginUserValidation(String userName, String userPassword);
 }

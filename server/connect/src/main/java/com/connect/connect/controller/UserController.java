@@ -1,10 +1,8 @@
 package com.connect.connect.controller;
 
-import com.connect.connect.model.dto.UserDTO;
 import com.connect.connect.model.entity.User;
 import com.connect.connect.model.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
@@ -13,24 +11,13 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1/user-management")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private IUserService userService;
-
-
-    @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody UserDTO userDTO) {
-        try {
-            userService.createUserByUserNameAndPassword(userDTO.getUsername(), userDTO.getPassword());
-            return ResponseEntity.ok("User created");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating user");
-        }
-    }
 
     @PostMapping("/update")
     public ResponseEntity<String> update(@RequestBody User user) {
@@ -76,11 +63,5 @@ public class UserController {
     public ResponseEntity<User> login(@RequestParam String username) {
         logger.info("Finding user by username: {}", username);
         return ResponseEntity.ok(userService.getUserByUsername(username));
-    }
-
-    @GetMapping("/login")
-    public ResponseEntity<User> login(@RequestParam String username, @RequestParam String password) {
-        logger.info("Logging in user: {}", username);
-        return ResponseEntity.ok(userService.getUserByUsernameAndPassword(username, password));
     }
 }

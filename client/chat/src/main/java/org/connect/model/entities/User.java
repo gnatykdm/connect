@@ -1,22 +1,21 @@
-package com.connect.connect.model.entity;
+package org.connect.model.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 @Data
 @Entity
 @NoArgsConstructor
 @Table(name = "users")
-public class User  {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int userId;
+    private int id;
 
     @Column(name = "username", unique = true, nullable = false)
     private String username;
@@ -27,25 +26,23 @@ public class User  {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "register_date", nullable = false)
-    private LocalDate registerDate;
-
-    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Message> sentMessages;
 
-    @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Message> receivedMessages;
 
     @ManyToMany
-    @JoinTable(name = "friendships",
+    @JoinTable(
+            name = "friendships",
             joinColumns = @JoinColumn(name = "user1_id"),
-            inverseJoinColumns = @JoinColumn(name = "user2_id"))
+            inverseJoinColumns = @JoinColumn(name = "user2_id")
+    )
     private Set<User> friends;
 
-    public User(String username, String email,  String password, LocalDate registerDate) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.registerDate = registerDate;
     }
 }

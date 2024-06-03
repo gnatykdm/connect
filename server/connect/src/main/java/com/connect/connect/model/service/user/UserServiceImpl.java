@@ -1,9 +1,7 @@
 package com.connect.connect.model.service.user;
 
-import com.connect.connect.model.dao.friends.IFriendShipDAO;
-import com.connect.connect.model.dao.user.IUserDAO;
 import com.connect.connect.model.entity.User;
-import jakarta.transaction.Transactional;
+import com.connect.connect.model.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
@@ -16,16 +14,13 @@ public class UserServiceImpl implements IUserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    private IUserDAO userDAO;
-    @Autowired
-    private IFriendShipDAO friendShipDAO;
+    private UserRepository userRepository;
 
     @Override
-    @Transactional
     public void createUser(User user) {
         logger.info("Creating user: {}", user);
         try {
-            userDAO.registerUser(user);
+            userRepository.save(user);
         } catch (Exception e) {
             logger.error("Error creating user: ", e);
             throw e;
@@ -33,11 +28,10 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    @Transactional
     public void updateUser(User user) {
         logger.info("Updating user: {}", user);
         try {
-            userDAO.updateUser(user);
+            userRepository.save(user);
         } catch (Exception e) {
             logger.error("Error updating user: ", e);
             throw e;
@@ -45,11 +39,10 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    @Transactional
     public void deleteUser(Integer userId) {
         logger.info("Deleting user with ID: {}", userId);
         try {
-            userDAO.removeUserById(userId);
+            userRepository.deleteByUserId(userId);
         } catch (Exception e) {
             logger.error("Error deleting user: ", e);
             throw e;
@@ -57,11 +50,10 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    @Transactional
     public User getUserById(Integer userId) {
         logger.info("Getting user by ID: {}", userId);
         try {
-            return userDAO.getUserById(userId);
+            return userRepository.findByUserId(userId);
         } catch (Exception e) {
             logger.error("Error getting user by ID: ", e);
             throw e;
@@ -69,11 +61,10 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    @Transactional
     public User getUserByUsername(String username) {
         logger.info("Getting user by username: {}", username);
         try {
-            return userDAO.getUserByUserName(username);
+            return userRepository.findByUsername(username);
         } catch (Exception e) {
             logger.error("Error getting user by username: ", e);
             throw e;
@@ -81,11 +72,10 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         logger.info("Getting all users");
         try {
-            return userDAO.getAllUsers();
+            return userRepository.findAll();
         } catch (Exception e) {
             logger.error("Error getting all users: ", e);
             throw e;
@@ -93,77 +83,19 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    @Transactional
-    public List<User> getAllFriends(Integer userId) {
-        logger.info("Getting all friends for user ID: {}", userId);
-        try {
-            return friendShipDAO.getAllFriends(userId);
-        } catch (Exception e) {
-            logger.error("Error getting all friends: ", e);
-            throw e;
-        }
-    }
+    public boolean loginUserValidation(String userName, String userPassword) {
 
-    @Override
-    @Transactional
-    public void addFriendship(Integer user1Id, Integer user2Id) {
-        logger.info("Adding friendship between user ID: {} and user ID: {}", user1Id, user2Id);
-        try {
-            friendShipDAO.addFriendShip(user1Id, user2Id);
-        } catch (Exception e) {
-            logger.error("Error adding friendship: ", e);
-            throw e;
-        }
-    }
+        logger.info("Validating user login: {}", userName);
+        List<User> userList = userRepository.findAll();
 
-    @Override
-    @Transactional
-    public void removeFriendship(Integer user1Id, Integer user2Id) {
-        logger.info("Removing friendship between user ID: {} and user ID: {}", user1Id, user2Id);
-        try {
-            friendShipDAO.removeFriendship(user1Id, user2Id);
-        } catch (Exception e) {
-            logger.error("Error removing friendship: ", e);
-            throw e;
+        logger.info("User list: {}", userList);
+        for (User u : userList) {
+            if (u.getUsername().equals(userName) && u.getPassword().equals(userPassword)) {
+                logger.info("User login successful");
+                return true;
+            }
         }
-    }
-
-    @Override
-    @Transactional
-    public boolean areFriends(Integer user1Id, Integer user2Id) {
-        logger.info("Checking if user ID: {} and user ID: {} are friends", user1Id, user2Id);
-        try {
-            return friendShipDAO.checkFriends(user1Id, user2Id);
-        } catch (Exception e) {
-            logger.error("Error checking friendship: ", e);
-            throw e;
-        }
-    }
-
-    @Override
-    @Transactional
-    public User getUserByUsernameAndPassword(String username, String password) {
-        logger.info("Getting user by username: {} and password", username);
-        try {
-            return userDAO.getUserByUsernameAndPassword(username, password);
-        } catch (Exception e) {
-            logger.error("Error getting user by username and password: ", e);
-            throw e;
-        }
-    }
-
-    @Override
-    @Transactional
-    public void createUserByUserNameAndPassword(String username, String password) {
-        logger.info("Creating user with username: {} and password", username);
-        try {
-            User user = new User();
-            user.setUsername(username);
-            user.setPassword(password);
-            userDAO.registerUser(user);
-        } catch (Exception e) {
-            logger.error("Error creating user by username and password: ", e);
-            throw e;
-        }
+        logger.info("User login failed");
+        return false;
     }
 }
