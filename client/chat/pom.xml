@@ -150,6 +150,17 @@
             <artifactId>jackson-core</artifactId>
             <version>2.13.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.17.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20240303</version>
+        </dependency>
+
 
         <!-- Lombok for Reducing Boilerplate Code -->
         <dependency>

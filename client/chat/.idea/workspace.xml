@@ -5,87 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/friendship/FriendshipId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/friends/FriendShipRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/copilot/chatSessions/blobs/version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/copilot/chatSessions/xd.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/4caba905-9151-4ea6-a944-65507b0740f9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/4caba905-9151-4ea6-a944-65507b0740f9/storage_v2/_src_/database/chatflow.hii1VQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/4caba905-9151-4ea6-a944-65507b0740f9/storage_v2/_src_/database/chatflow.hii1VQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/9165898c-a6a9-47f0-9322-e62cf8deeb9d.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/9165898c-a6a9-47f0-9322-e62cf8deeb9d/storage_v2/_src_/database/connectdb.6PJ53Q.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/9165898c-a6a9-47f0-9322-e62cf8deeb9d/storage_v2/_src_/database/connectdb.6PJ53Q/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935/storage_v2/_src_/database/chatflow.hii1VQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/dataSources/ac7fe08f-e03a-4d5f-b5cd-9594c4999935/storage_v2/_src_/database/chatflow.hii1VQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/controller/ChatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/controller/logcontrollers/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/controller/logcontrollers/SignController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/controller/logcontrollers/requests/UserRequestClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/controller/settings/SettingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/model/dao/message/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/model/dao/message/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/model/dao/user/IUserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/model/dao/user/UserDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/model/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/model/entities/Friendship.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/model/entities/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/model/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/util/HibernateUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/java/org/connect/util/HttpRequestClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/resources/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/resources/org/connect/view/logviews/home.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/resources/org/connect/view/logviews/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/resources/org/connect/view/logviews/sign.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/resources/org/connect/view/logviews/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/resources/org/connect/view/profile.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/resources/org/connect/view/settingsview/settings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chat/src/main/resources/script.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/ChatRoomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/ChatRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/ChatRoomRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/chatroom/ChatRoomServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/chatroom/IChatRoomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/test/java/com/connect/connect/controller/AuthControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/test/java/com/connect/connect/controller/ChatRoomControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/test/java/com/connect/connect/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dao/friends/FriendShipDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dao/friends/IFriendShipDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dao/message/IMessageDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dao/message/MessageDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dao/user/IUserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dao/user/UserDAOImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Friendship.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/friendship/Friendship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/friends/FriendShipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/friends/FriendShipService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/friendship/Friendship.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/friendship/FriendshipId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/friends/FriendShipRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/friends/FriendShipService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/friends/IFriendshipService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/util/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/util/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +48,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/21/javafx-controls-21-win.jar!/com/sun/javafx/scene/control/inputmap/InputMap.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -122,44 +66,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.UserCheckDAOImplTest.checkUserEmail.executor": "Run",
-    "JUnit.UserCheckDAOImplTest.checkUserName.executor": "Run",
-    "JUnit.UserCheckDAOImplTest.executor": "Debug",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/connect/chat",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.UserCheckDAOImplTest.checkUserEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserCheckDAOImplTest.checkUserName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserCheckDAOImplTest.executor&quot;: &quot;Debug&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/connect/chat&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.connect.model.entities" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\view\logviews" />
       <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\chatgui\view\settingsview" />
@@ -333,6 +280,25 @@
       <workItem from="1716806193929" duration="206000" />
       <workItem from="1716806777499" duration="170000" />
       <workItem from="1717399425702" duration="2503000" />
+      <workItem from="1717423384131" duration="4707000" />
+      <workItem from="1717436364908" duration="4375000" />
+      <workItem from="1717451480069" duration="347000" />
+      <workItem from="1717452039265" duration="712000" />
+      <workItem from="1717452881883" duration="48000" />
+      <workItem from="1717533288285" duration="579000" />
+      <workItem from="1717534917470" duration="323000" />
+      <workItem from="1717535289566" duration="165000" />
+      <workItem from="1717535480241" duration="38000" />
+      <workItem from="1717535541032" duration="4474000" />
+      <workItem from="1717540632263" duration="1756000" />
+      <workItem from="1717584487731" duration="33000" />
+      <workItem from="1717622127470" duration="104000" />
+      <workItem from="1717656397489" duration="199000" />
+      <workItem from="1717656624112" duration="51000" />
+      <workItem from="1717656695710" duration="22000" />
+      <workItem from="1717656740799" duration="717000" />
+      <workItem from="1717657672846" duration="238000" />
+      <workItem from="1717657946857" duration="106000" />
     </task>
     <servers />
   </component>

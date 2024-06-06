@@ -81,9 +81,14 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
+            <Button fx:id="switchToLogin" mnemonicParsing="false" onAction="#switchButton" prefHeight="20.0" prefWidth="93.0" style="-fx-background-color: #242424; -fx-text-fill: #ffffff;" text=" Have any account?">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
                 <Button fx:id="submitButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#submit" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #8379e7; -fx-background-radius: 10px;" text="Submit" textFill="WHITE">
                     <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="5.0" />
                     </VBox.margin>
                     <font>
                         <Font name="System Bold" size="15.0" />

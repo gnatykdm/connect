@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Data
 @Entity
@@ -15,8 +13,12 @@ import java.util.Set;
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "message_id")
-    private Integer messageId;
+    @Column(name = "id")
+    private int messageId;
+
+    @ManyToOne
+    @JoinColumn(name = "chat_room_id", nullable = false)
+    private ChatRoom room;
 
     @ManyToOne
     @JoinColumn(name = "sender_id", nullable = false)
@@ -26,16 +28,17 @@ public class Message {
     @JoinColumn(name = "receiver_id", nullable = false)
     private User receiver;
 
-    @Column(name = "content", nullable = false)
-    private String content;
+    @Column(name = "message_text", nullable = false)
+    private String messageText;
 
-    @Column(name = "sent_at", nullable = false)
-    private LocalDateTime sentAt;
+    @Column(name = "timestamp", nullable = false)
+    private LocalDateTime timestamp;
 
-    public Message(User sender, User receiver, String content, LocalDate sentAt) {
+    public Message(ChatRoom room, User sender, User receiver, String messageText, LocalDateTime timestamp) {
+        this.room = room;
         this.sender = sender;
         this.receiver = receiver;
-        this.content = content;
-        this.sentAt = sentAt.atStartOfDay();
+        this.messageText = messageText;
+        this.timestamp = timestamp;
     }
 }

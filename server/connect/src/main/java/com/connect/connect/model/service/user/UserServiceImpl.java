@@ -2,6 +2,7 @@ package com.connect.connect.model.service.user;
 
 import com.connect.connect.model.entity.User;
 import com.connect.connect.model.repository.user.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
@@ -28,6 +29,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public void updateUser(User user) {
         logger.info("Updating user: {}", user);
         try {
@@ -39,7 +41,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void deleteUser(Integer userId) {
+    @Transactional
+    public void deleteUserById(Integer userId) {
         logger.info("Deleting user with ID: {}", userId);
         try {
             userRepository.deleteByUserId(userId);
@@ -50,6 +53,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public User getUserById(Integer userId) {
         logger.info("Getting user by ID: {}", userId);
         try {
@@ -61,6 +65,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public User getUserByUsername(String username) {
         logger.info("Getting user by username: {}", username);
         try {
@@ -72,6 +77,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public List<User> getAllUsers() {
         logger.info("Getting all users");
         try {
@@ -83,6 +89,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public boolean loginUserValidation(String userName, String userPassword) {
 
         logger.info("Validating user login: {}", userName);

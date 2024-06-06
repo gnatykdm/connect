@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
@@ -24,11 +24,11 @@ public class User  {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
 
     @Column(name = "register_date", nullable = false)
-    private LocalDate registerDate;
+    private LocalDateTime registerDate;
 
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     private Set<Message> sentMessages;
@@ -36,13 +36,13 @@ public class User  {
     @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL)
     private Set<Message> receivedMessages;
 
-    @ManyToMany
-    @JoinTable(name = "friendships",
-            joinColumns = @JoinColumn(name = "user1_id"),
-            inverseJoinColumns = @JoinColumn(name = "user2_id"))
-    private Set<User> friends;
+    @OneToMany(mappedBy = "user1", cascade = CascadeType.ALL)
+    private Set<ChatRoom> chatRooms1;
 
-    public User(String username, String email,  String password, LocalDate registerDate) {
+    @OneToMany(mappedBy = "user2", cascade = CascadeType.ALL)
+    private Set<ChatRoom> chatRooms2;
+
+    public User(String username, String email, String password, LocalDateTime registerDate) {
         this.username = username;
         this.email = email;
         this.password = password;

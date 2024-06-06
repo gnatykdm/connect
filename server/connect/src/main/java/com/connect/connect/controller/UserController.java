@@ -2,6 +2,7 @@ package com.connect.connect.controller;
 
 import com.connect.connect.model.entity.User;
 import com.connect.connect.model.service.user.IUserService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,23 +20,11 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @PostMapping("/update")
-    public ResponseEntity<String> update(@RequestBody User user) {
-        logger.info("Updating user: {}", user);
-        try {
-            userService.updateUser(user);
-            return ResponseEntity.ok("User updated");
-        } catch (Exception e) {
-            logger.error("Error updating user: ", e);
-            return ResponseEntity.status(500).body("Error updating user");
-        }
-    }
-
     @DeleteMapping("/delete/{userId}")
-    public ResponseEntity<String> delete(@PathVariable Integer userId) {
+    public ResponseEntity<?> delete(@PathVariable Integer userId) {
         logger.info("Deleting user with ID: {}", userId);
         try {
-            userService.deleteUser(userId);
+            userService.deleteUserById(userId);
             return ResponseEntity.ok("User deleted");
         } catch (Exception e) {
             logger.error("Error deleting user: ", e);
@@ -60,8 +49,10 @@ public class UserController {
     }
 
     @GetMapping("/find")
-    public ResponseEntity<User> login(@RequestParam String username) {
-        logger.info("Finding user by username: {}", username);
-        return ResponseEntity.ok(userService.getUserByUsername(username));
+    public ResponseEntity<User> getUserByName(HttpServletRequest req) {
+        String username = req.getParameter("username");
+
+        User user = userService.getUserByUsername(username);
+        return ResponseEntity.ok(user);
     }
 }

@@ -13,9 +13,31 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #242424;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.connect.controller.ChatController">
     <top>
-        <HBox prefHeight="57.0" prefWidth="900.0" style="-fx-background-color: #2b2b2b;">
-            <children>
-                <Label text="connect" textFill="#c1ff72">
+        <BorderPane prefHeight="57.0" prefWidth="783.0" style="-fx-background-color: #2b2b2b;">
+            <right>
+                <HBox>
+                    <Region prefHeight="57.0" prefWidth="10.0" />
+                    <Button style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 5px;" text="Add">
+                        <padding>
+                            <Insets right="10.0" />
+                        </padding>
+                        <HBox.margin>
+                            <Insets top="20.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 5px;" text="Settings">
+                        <padding>
+                            <Insets left="10.0" right="10.0" />
+                        </padding>
+                        <HBox.margin>
+                            <Insets top="20.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Region prefHeight="57.0" prefWidth="10.0" />
+                </HBox>
+            </right>
+            <left>
+                <Label text="connect" textFill="#c1ff72" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
@@ -23,33 +45,26 @@
                         <Insets left="15.0" top="15.0" />
                     </padding>
                 </Label>
-                <Region HBox.hgrow="ALWAYS" />
-                <Button style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 5px;" text="Profile">
+            </left>
+            <center>
+                <Label fx:id="usernameLabel" prefHeight="45.0" prefWidth="179.0" textFill="WHITE" wrapText="true" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
                     <padding>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets top="15.0" />
                     </padding>
-                    <HBox.margin>
-                        <Insets top="20.0" />
-                    </HBox.margin>
-                </Button>
-                <Button style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 5px;" text="Settings">
-                    <padding>
-                        <Insets left="10.0" right="10.0" />
-                    </padding>
-                    <HBox.margin>
-                        <Insets top="20.0" />
-                    </HBox.margin>
-                </Button>
-            </children>
-            <padding>
-                <Insets right="15.0" />
-            </padding>
-        </HBox>
+                    <BorderPane.margin>
+                        <Insets left="130.0" />
+                    </BorderPane.margin>
+                </Label>
+            </center>
+        </BorderPane>
     </top>
     <left>
         <VBox prefWidth="250.0" style="-fx-background-color: #242424;">
             <children>
-                <ScrollPane fx:id="chatScrollPane" prefHeight="576.0" prefWidth="250.0" style="-fx-background: #2b2b2b; -fx-border-color: #242424;">
+                <ScrollPane fx:id="chatScrollPane" prefHeight="631.0" prefWidth="250.0" style="-fx-background: #2b2b2b; -fx-border-color: #242424;">
                     <content>
                         <VBox fx:id="chatBox" style="-fx-background-color: #2b2b2b;">
                             <!-- Add chat items here -->
@@ -74,7 +89,7 @@
                         <TextField fx:id="messageField" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #3c3c3c; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-family: Consolas; -fx-text-fill: #FFFFFF; -fx-padding: 5;" BorderPane.alignment="CENTER" />
                     </center>
                     <right>
-                        <Button fx:id="sendButton" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10;" text="Send" textFill="WHITE">
+                        <Button fx:id="sendButton" onAction="#sendMessage" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10;" text="Send" textFill="WHITE">
                             <padding>
                                 <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                             </padding>

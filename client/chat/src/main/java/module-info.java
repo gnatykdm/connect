@@ -17,6 +17,8 @@ module org.chatgui.chatgui {
 
     requires java.sql;
     requires com.fasterxml.jackson.databind;
+    requires com.fasterxml.jackson.datatype.jsr310;
+    requires org.json;
 
     opens org.connect to javafx.fxml;
     exports org.connect;
