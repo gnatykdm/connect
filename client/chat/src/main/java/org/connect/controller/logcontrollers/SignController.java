@@ -14,24 +14,18 @@ import javafx.stage.Stage;
 import org.connect.controller.ChatController;
 import org.connect.model.dto.UserDTO;
 import org.connect.model.entities.User;
-import org.connect.requests.user.UserRequestClient;
+import org.connect.model.requests.user.UserRequestClient;
 
 import java.io.IOException;
 
 public class SignController {
 
-    @FXML
-    private TextField userName;
-    @FXML
-    private PasswordField userPassword;
-    @FXML
-    private TextField userEmail;
-    @FXML
-    private Button submitButton;
-    @FXML
-    private Label dataValidator;
-    @FXML
-    private Button switchToLogin;
+    @FXML private TextField userName;
+    @FXML private PasswordField userPassword;
+    @FXML private TextField userEmail;
+    @FXML private Button submitButton;
+    @FXML private Label dataValidator;
+    @FXML private Button switchToLogin;
 
     private final UserRequestClient conn = new UserRequestClient();
 
@@ -67,7 +61,7 @@ public class SignController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/connect/view/logviews/home.fxml"));
             Parent parent = loader.load();
             ChatController controller = loader.getController();
-            controller.userInfo(globalUser);
+            controller.setUser(globalUser);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(parent);

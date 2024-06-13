@@ -1,6 +1,7 @@
 package org.connect.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

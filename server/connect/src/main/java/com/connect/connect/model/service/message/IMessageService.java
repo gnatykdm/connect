@@ -17,5 +17,5 @@ public interface IMessageService {
 
     List<Message> getMessagesReceivedByUser(Integer userId);
 
-    List<Message> getMessageByChatRoomId(Integer chatRoomId);
+    List<Message> getMessagesBetweenUsers(Integer userId1, Integer userId2);
 }

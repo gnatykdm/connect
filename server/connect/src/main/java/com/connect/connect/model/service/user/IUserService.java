@@ -1,8 +1,10 @@
 package com.connect.connect.model.service.user;
 
 import com.connect.connect.model.entity.User;
+import jakarta.persistence.criteria.CriteriaBuilder;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IUserService {
     void createUser(User user);
@@ -18,4 +20,6 @@ public interface IUserService {
     List<User> getAllUsers();
 
     boolean loginUserValidation(String userName, String userPassword);
+
+    Optional<Integer> getUserIdByUsername(String username);
 }

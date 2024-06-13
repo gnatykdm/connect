@@ -1,4 +1,4 @@
-package org.connect.requests.chatroom;
+package org.connect.model.requests.chatroom;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +19,8 @@ public class ChatRoomRequest implements IChatRoomRequest {
 
     @Override
     public List<ChatRoom> getAllChatRooms(Integer userId) throws Exception {
-        URL url = new URL(URL + "/all" + "/" + userId);
+        String urlString = String.format("%s/all/%d", URL, userId);
+        URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestMethod("GET");
@@ -31,16 +32,15 @@ public class ChatRoomRequest implements IChatRoomRequest {
             List<ChatRoom> chatRoomList = obj.readValue(inputStream, new TypeReference<List<ChatRoom>>() {});
             if (chatRoomList.isEmpty()) {
                 logger.info("No chat rooms found");
-                return null;
-            } else {
-                return chatRoomList;
             }
+            return chatRoomList;
         } catch (Exception e) {
-            logger.info("Error: " + e.getMessage());
-            return null;
+            logger.severe("Failed to get chat rooms");
+            throw e;
+        } finally {
+            conn.disconnect();
         }
     }
-
 
     @Override
     public ChatRoom createChatRoom(Integer user1, Integer user2) throws Exception {

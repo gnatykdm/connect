@@ -10,14 +10,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MessageRepository extends JpaRepository<Message, Integer>, IMessageRepositoryCustom {
+public interface MessageRepository extends JpaRepository<Message, Integer> {
     List<Message> findBySender(User sender);
 
     List<Message> findByReceiver(User receiver);
 
     @Query("SELECT m FROM Message m WHERE m.sender.userId = :userId")
-    List<Message> getMessagesSentByUser(Integer userId);
+    List<Message> getMessagesSentByUser(@Param("userId") Integer userId);
 
-    @Query("SELECT m FROM Message m WHERE m.receiver.userId = :chatRoomId")
-    List<Message> getMessageByChatRoomId(@Param("chatRoomId") Integer chatRoomId);
+    @Query("SELECT m FROM Message m WHERE m.room.user1.userId = :userId1 AND m.room.user2.userId = :userId2")
+    List<Message> getMessagesBetweenUsers(@Param("userId1") int userId1, @Param("userId2") int userId2);
 }

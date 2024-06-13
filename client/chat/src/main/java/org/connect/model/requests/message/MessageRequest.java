@@ -1,8 +1,11 @@
-package org.connect.requests.message;
+package org.connect.model.requests.message;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.connect.model.entities.Message;
 
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -24,11 +27,14 @@ public class MessageRequest implements IMessageRequest {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
+        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+        conn.setReadTimeout(5000);
+        conn.setConnectTimeout(5000);
         conn.setDoOutput(true);
 
         logger.info("Sending message to " + receiver + " from " + sender);
         String urlParams = "content=" + URLEncoder.encode(content, "UTF-8");
+
         try (OutputStream os = conn.getOutputStream()) {
             byte[] input = urlParams.getBytes("utf-8");
             os.write(input, 0, input.length);
@@ -37,12 +43,15 @@ public class MessageRequest implements IMessageRequest {
         int responseCode = conn.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
             logger.info("Message sent successfully");
-            return obj.readValue(conn.getInputStream(), Message.class);
+            try (InputStream is = conn.getInputStream()) {
+                return new ObjectMapper().readValue(is, Message.class);
+            }
         }
 
         logger.info("Error: " + responseCode);
         return null;
     }
+
 
     @Override
     public List<Message> getAllMessageSentByUser(Integer userId) throws Exception {
@@ -65,8 +74,8 @@ public class MessageRequest implements IMessageRequest {
     }
 
     @Override
-    public List<Message> getMessagesByChatRoom(Integer chatRoomId) throws Exception {
-        URL url = new URL(MESSAGE_URL + "/all-chatroom/" + chatRoomId);
+    public List<Message> getMessages(Integer userSender, Integer userReceiver) throws Exception {
+        URL url = new URL(MESSAGE_URL + "all-chatroom" + "/" + userSender + "/" + userReceiver);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestMethod("GET");
@@ -75,13 +84,15 @@ public class MessageRequest implements IMessageRequest {
         conn.setConnectTimeout(5000);
         conn.setDoOutput(true);
 
+        obj.registerModule(new JavaTimeModule());
         int responseCode = conn.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
             logger.info("Messages retrieved successfully");
-            return Collections.singletonList(obj.readValue(conn.getInputStream(), Message.class));
+            return obj.readValue(conn.getInputStream(), new TypeReference<List<Message>>() {});
         }
 
         logger.info("Error: " + responseCode);
         return null;
     }
+
 }

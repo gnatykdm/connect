@@ -1,4 +1,4 @@
-package org.connect.requests;
+package org.connect.model.requests;
 
 import lombok.Data;
 

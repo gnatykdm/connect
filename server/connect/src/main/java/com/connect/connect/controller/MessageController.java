@@ -25,12 +25,20 @@ public class MessageController {
     }
 
     @GetMapping("/all/{userId}")
-    public ResponseEntity<List<Message>> getAllMessages(@PathVariable Integer userId) {
-        return ResponseEntity.ok(messageService.getMessagesSentByUser(userId));
+    public ResponseEntity<?> getAllMessages(@PathVariable String userId) {
+        try {
+            Integer userIdInt = Integer.parseInt(userId);
+            List<Message> messages = messageService.getMessagesSentByUser(userIdInt);
+            return ResponseEntity.ok(messages);
+        } catch (NumberFormatException e) {
+            return ResponseEntity.badRequest().body("Invalid user ID format");
+        }
     }
 
-    @GetMapping("/all-chatroom/{chatRoomId}")
-    public ResponseEntity<List<Message>> getAllByChatRoomId(@PathVariable Integer chatRoomId) {
-        return ResponseEntity.ok(messageService.getMessageByChatRoomId(chatRoomId));
+    @GetMapping("/all-chatroom/{userSender}/{userReceiver}")
+    public ResponseEntity<List<Message>> getAllByChatRoomId(@PathVariable Integer userSender,
+                                                            @PathVariable Integer userReceiver) {
+        List<Message> messageReceived = messageService.getMessagesBetweenUsers(userSender, userReceiver);
+        return ResponseEntity.ok(messageReceived);
     }
 }

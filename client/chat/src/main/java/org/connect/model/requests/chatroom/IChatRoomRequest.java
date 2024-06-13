@@ -1,4 +1,4 @@
-package org.connect.requests.chatroom;
+package org.connect.model.requests.chatroom;
 
 import org.connect.model.entities.ChatRoom;
 

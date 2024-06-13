@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../server/connect/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/IMessageRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/IMessageRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/IMessageRepositoryCustom.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepositoryCustom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +59,13 @@
   &quot;keyToString&quot;: {
     &quot;Application.App.executor&quot;: &quot;Run&quot;,
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestClass.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;JUnit.UserCheckDAOImplTest.checkUserEmail.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserCheckDAOImplTest.checkUserName.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserCheckDAOImplTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UserRequestClientTest.loginUserIdRequest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRequestClientTest.loginUserRequest.executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
@@ -105,6 +113,7 @@
       <recent name="org.chatgui.services" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.connect.model.requests.user" />
       <recent name="org.chatgui.services" />
       <recent name="org.chatgui.model.dao" />
       <recent name="org.chatgui.model.hibernateconfiguration" />
@@ -124,17 +133,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserCheckDAOImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.connect.controller.logcontrollers.TestClass" />
       <module name="chat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.connect.services.validation.*" />
+          <option name="PATTERN" value="org.connect.controller.logcontrollers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.chatgui.services" />
-      <option name="MAIN_CLASS_NAME" value="org.connect.services.UserCheckDAOImplTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,17 +162,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserCheckDAOImplTest.checkUserName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRequestClientTest.loginUserIdRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.connect.services.validation.*" />
+          <option name="PATTERN" value="org.connect.model.requests.user.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.chatgui.services" />
-      <option name="MAIN_CLASS_NAME" value="org.connect.services.UserCheckDAOImplTest" />
-      <option name="METHOD_NAME" value="checkUserName" />
+      <option name="PACKAGE_NAME" value="org.connect.model.requests.user" />
+      <option name="MAIN_CLASS_NAME" value="org.connect.model.requests.user.UserRequestClientTest" />
+      <option name="METHOD_NAME" value="loginUserIdRequest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRequestClientTest.loginUserRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.connect.model.requests.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.connect.model.requests.user" />
+      <option name="MAIN_CLASS_NAME" value="org.connect.model.requests.user.UserRequestClientTest" />
+      <option name="METHOD_NAME" value="loginUserRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -174,9 +197,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.TestClass" />
+        <item itemvalue="JUnit.UserRequestClientTest.loginUserIdRequest" />
+        <item itemvalue="JUnit.UserRequestClientTest.loginUserRequest" />
         <item itemvalue="JUnit.UserCheckDAOImplTest.checkUserEmail" />
-        <item itemvalue="JUnit.UserCheckDAOImplTest.checkUserName" />
-        <item itemvalue="JUnit.UserCheckDAOImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -296,6 +320,24 @@
       <workItem from="1718219190482" duration="1096000" />
       <workItem from="1718265835642" duration="299000" />
       <workItem from="1718267571532" duration="325000" />
+      <workItem from="1718268114964" duration="7000" />
+      <workItem from="1718271649190" duration="231000" />
+      <workItem from="1718272395323" duration="65000" />
+      <workItem from="1718272481712" duration="114000" />
+      <workItem from="1718273035023" duration="310000" />
+      <workItem from="1718273532039" duration="166000" />
+      <workItem from="1718280212867" duration="423000" />
+      <workItem from="1718280695854" duration="100000" />
+      <workItem from="1718280842610" duration="71000" />
+      <workItem from="1718281740057" duration="1324000" />
+      <workItem from="1718283320120" duration="3780000" />
+      <workItem from="1718294172265" duration="664000" />
+      <workItem from="1718295495815" duration="229000" />
+      <workItem from="1718295960408" duration="324000" />
+      <workItem from="1718296438325" duration="66000" />
+      <workItem from="1718297051810" duration="774000" />
+      <workItem from="1718297955375" duration="4902000" />
+      <workItem from="1718310157942" duration="2907000" />
     </task>
     <servers />
   </component>

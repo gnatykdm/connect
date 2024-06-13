@@ -1,4 +1,4 @@
-package org.connect.requests.message;
+package org.connect.model.requests.message;
 
 
 import org.connect.model.entities.Message;
@@ -9,5 +9,5 @@ public interface IMessageRequest {
 
     List<Message> getAllMessageSentByUser(Integer userId) throws Exception;
 
-    List<Message> getMessagesByChatRoom(Integer chatRoomId) throws Exception;
+    List<Message> getMessages(Integer userSender, Integer userReceiver) throws Exception;
 }

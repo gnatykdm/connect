@@ -1,68 +1,57 @@
 package org.connect.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
-import lombok.Setter;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 import org.connect.model.entities.ChatRoom;
 import org.connect.model.entities.Message;
 import org.connect.model.entities.User;
-import org.connect.requests.chatroom.ChatRoomRequest;
-import javafx.application.Platform;
-import org.connect.requests.message.IMessageRequest;
-import org.connect.requests.message.MessageRequest;
+import org.connect.model.requests.chatroom.ChatRoomRequest;
+import org.connect.model.requests.chatroom.IChatRoomRequest;
+import org.connect.model.requests.message.IMessageRequest;
+import org.connect.model.requests.message.MessageRequest;
+import org.connect.model.requests.user.IUserRequest;
+import org.connect.model.requests.user.UserRequestClient;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ChatController {
+    @FXML private TextField messageField;
+    @FXML private Button sendButton;
+    @FXML private VBox messagesBox;
+    @FXML private ScrollPane messagesScrollPane;
+    @FXML private Label usernameLabel;
+    @FXML private Button addButton;
+    @FXML private VBox chatBox;
+    @FXML private HBox statusBar;
+    @FXML private Label chatWithLabel;
 
-    private static final Logger LOGGER = Logger.getLogger(ChatController.class.getName());
-
-    @FXML
-    private TextField messageField;
-
-    @FXML
-    private Button sendButton;
-
-    @FXML
-    private VBox messagesBox;
-
-    @FXML
-    private ScrollPane messagesScrollPane;
-
-    @FXML
-    private Label usernameLabel;
-
-    @FXML
-    private Button addButton;
-
-    @FXML
-    private VBox chatBox;
-
-    @Setter
     private User user = new User();
+    private Integer receiverId;
 
-    private final ChatRoomRequest chatRoomRequest = new ChatRoomRequest();
+    private final IChatRoomRequest chatRoomRequest = new ChatRoomRequest();
+    private final IMessageRequest messageRequest = new MessageRequest();
+    private final IUserRequest userRequest = new UserRequestClient();
 
     private final String BUTTON_HOVER_STYLE = "-fx-background-color: #555555; -fx-text-fill: white; -fx-font-size: 25px; -fx-border-width: 2px; -fx-border-radius: 10;";
     private final String BUTTON_DEFAULT_STYLE = "-fx-background-color: #3c3c3c; -fx-text-fill: white; -fx-font-size: 25px; -fx-border-width: 2px; -fx-border-radius: 10;";
-    private final String BUTTON_STYLE = "-fx-background-color: #3c3c3c; -fx-text-fill: white; -fx-font-size: 25px; -fx-border-width: 2px; -fx-border-radius: 10;";
 
+    private static final Logger LOGGER = Logger.getLogger(ChatController.class.getName());
 
     public void initialize() {
         try {
             initializeUIComponents();
             loadChatRooms();
-            updateUserInfo();
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Failed to initialize ChatController", e);
         }
@@ -86,6 +75,7 @@ public class ChatController {
     }
 
     private void loadChatRooms() {
+        LOGGER.info("Loading chat rooms for userId: " + user.getUserId());
         try {
             final List<ChatRoom> chatRooms = chatRoomRequest.getAllChatRooms(user.getUserId());
             if (chatRooms == null) {
@@ -95,10 +85,9 @@ public class ChatController {
                 chatBox.getChildren().clear();
                 for (ChatRoom chatRoom : chatRooms) {
                     Button chatButton = new Button(chatRoom.getUser2().getUsername());
-                    chatButton.setStyle(BUTTON_STYLE);
+                    chatButton.setStyle(BUTTON_DEFAULT_STYLE);
                     chatButton.setMaxWidth(Double.MAX_VALUE);
                     chatButton.setAlignment(Pos.CENTER_LEFT);
-                    HBox.setHgrow(chatButton, Priority.ALWAYS);
 
                     chatButton.setOnMouseEntered(e -> chatButton.setStyle(BUTTON_HOVER_STYLE));
                     chatButton.setOnMouseExited(e -> chatButton.setStyle(BUTTON_DEFAULT_STYLE));
@@ -115,17 +104,22 @@ public class ChatController {
 
     private void openChatWindow(ChatRoom chatRoom) {
         messagesBox.getChildren().clear();
-        displayMessage("Message from " + chatRoom.getUser2().getUsername());
+        receiverId = chatRoom.getUser2().getUserId();
+        chatWithLabel.setText("Chat with: " + chatRoom.getUser2().getUsername());
         loadMessages(chatRoom);
     }
 
     private void loadMessages(ChatRoom chatRoom) {
         IMessageRequest messageRequest = new MessageRequest();
         try {
-            List<Message> messageList = messageRequest.getMessagesByChatRoom(chatRoom.getUser2().getUserId());
+            List<Message> messageList = messageRequest.getMessages(user.getUserId(), chatRoom.getUser2().getUserId());
+            List<Message> messages = messageRequest.getMessages(chatRoom.getUser2().getUserId(), user.getUserId());
+            messageList.addAll(messages);
+
+            messageList = sortMessagesByTime(messageList);
             if (messageList != null) {
                 for (Message message : messageList) {
-                    displayMessage(message.getMessageText());
+                    displayMessage(message);
                 }
             }
         } catch (Exception e) {
@@ -133,30 +127,38 @@ public class ChatController {
         }
     }
 
-    private void updateUserInfo() {
-        if (user != null) {
-            Platform.runLater(() -> {
-                usernameLabel.setText(user.getUsername());
-                usernameLabel.setWrapText(true);
-            });
+    @FXML
+    private void sendMessage() throws Exception {
+        String content = messageField.getText().trim();
+        if (!content.isEmpty()) {
+            try {
+                messageRequest.sendMessage(user.getUserId(), receiverId, content);
+            } catch (Exception e) {
+                LOGGER.log(Level.SEVERE, "Failed to send message", e);
+            }
+
+            User receiver = userRequest.getUserById(receiverId);
+            Message message = new Message(null, user, receiver, content, LocalDateTime.now());
+            displayMessage(message);
+            messageField.clear();
         }
     }
 
-    @FXML
-    private void sendMessage() throws Exception {
-        IMessageRequest messageRequest = new MessageRequest();
-        String content = messageField.getText().trim();
-        if (!content.isEmpty()) {
-            Message message = new Message();
+    private List<Message> sortMessagesByTime(List<Message> messages) {
+        messages.sort(Comparator.comparing(Message::getTimestamp));
+        return messages;
+    }
 
-            displayMessage(content);
-            messageField.clear();
+    public void setUser(User user) {
+        this.user = user;
+        if (user != null) {
+            loadChatRooms();
+            usernameLabel.setText("@" + user.getUsername());
         }
     }
 
     private void createNewChatRoom() {
         try {
-            int receiverId = getReceiverId();
             chatRoomRequest.createChatRoom(user.getUserId(), receiverId);
             loadChatRooms();
         } catch (Exception e) {
@@ -164,31 +166,37 @@ public class ChatController {
         }
     }
 
-    public void userInfo(User user) {
-        this.user = user;
-        Platform.runLater(() -> usernameLabel.setText(user.getUsername()));
-    }
-
-    private void displayMessage(String message) {
-        Label messageLabel = new Label(message);
+    private void displayMessage(Message message) {
+        Label messageLabel = new Label(message.getMessageText());
         messageLabel.setWrapText(true);
-        messageLabel.setMaxWidth(400);
-        messageLabel.getStyleClass().add("chat-message");
+        messageLabel.setStyle("-fx-background-insets: 0; -fx-background-radius: 10;");
 
-        Region spacing = new Region();
-        spacing.setPrefHeight(10);
+        String backgroundColor;
+        if (message.getSender().getUserId().equals(user.getUserId())) {
+            backgroundColor = "#8379e7"; // Background color for sender
+        } else {
+            backgroundColor = "#555555FF"; // Background color for receiver
+        }
+        messageLabel.setStyle("-fx-background-color: " + backgroundColor + "; -fx-background-insets: 0; -fx-background-radius: 10; " +
+                "-fx-border-color: " + backgroundColor + "; -fx-border-radius: 10; -fx-border-width: 1; -fx-padding: 5px; -fx-text-fill: white; -fx-font-size: 14px;");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedTimestamp = message.getTimestamp().format(formatter);
+        Label senderLabel = new Label("Sent by: " + message.getSender().getUsername() + " at " + formattedTimestamp);
+        senderLabel.setStyle("-fx-text-fill: #555555; -fx-font-size: 10px;");
+        senderLabel.setTextAlignment(TextAlignment.RIGHT);
+
+        VBox messageContainer = new VBox(messageLabel, senderLabel);
+        messageContainer.setSpacing(4);
+        messageContainer.setPadding(new Insets(4, 5, 0, 5));
+
+        messageContainer.setMaxWidth(Double.MAX_VALUE);
+        HBox.setHgrow(messageContainer, Priority.ALWAYS);
 
         Platform.runLater(() -> {
-            messagesBox.getChildren().addAll(messageLabel, spacing);
+            messagesBox.getChildren().add(messageContainer);
             messagesScrollPane.setVvalue(1.0);
         });
     }
 
-    private int getReceiverId() {
-        return 2;
-    }
-
-    private int getCurrentChatRoomId() {
-        return 1;
-    }
 }

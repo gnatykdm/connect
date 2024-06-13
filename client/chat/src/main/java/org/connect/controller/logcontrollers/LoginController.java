@@ -13,20 +13,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.connect.controller.ChatController;
 import org.connect.model.entities.User;
-import org.connect.requests.user.UserRequestClient;
-
-import java.io.IOException;
+import org.connect.model.requests.user.UserRequestClient;
 
 public class LoginController {
 
-    @FXML
-    private TextField userName;
-    @FXML
-    private PasswordField userPassword;
-    @FXML
-    private Button submitButton;
-    @FXML
-    private Label dataValidator;
+    @FXML private TextField userName;
+    @FXML private PasswordField userPassword;
+    @FXML private Button submitButton;
+    @FXML private Label dataValidator;
 
     private final UserRequestClient conn = new UserRequestClient();
 
@@ -52,36 +46,18 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/connect/view/logviews/home.fxml"));
             Parent parent = loader.load();
             ChatController controller = loader.getController();
-            controller.userInfo(user);
+            controller.setUser(user);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(parent);
 
             stage.setScene(scene);
             stage.show();
+
+            userPassword.clear();
         } else {
             dataValidator.setStyle("-fx-text-fill: #FF0000");
             dataValidator.setText("Invalid credentials");
-        }
-    }
-
-    private void switchScene(String path, ActionEvent event, User user) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
-            Parent parent = loader.load();
-
-            if (user != null) {
-                ChatController chatController = loader.getController();
-                chatController.setUser(user);
-            }
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(parent);
-
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

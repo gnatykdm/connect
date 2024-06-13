@@ -91,7 +91,7 @@ public class MessageServiceImpl implements IMessageService {
     }
 
     @Override
-    public List<Message> getMessageByChatRoomId(Integer chatRoomId) {
-        return messageRepository.getMessageByChatRoomId(chatRoomId);
+    public List<Message> getMessagesBetweenUsers(Integer userId1, Integer userId2) {
+        return messageRepository.getMessagesBetweenUsers(userId1, userId2);
     }
 }
