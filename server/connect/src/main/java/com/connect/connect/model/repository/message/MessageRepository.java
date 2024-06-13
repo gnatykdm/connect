@@ -4,6 +4,7 @@ import com.connect.connect.model.entity.Message;
 import com.connect.connect.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface MessageRepository extends JpaRepository<Message, Integer>, IMes
 
     @Query("SELECT m FROM Message m WHERE m.sender.userId = :userId")
     List<Message> getMessagesSentByUser(Integer userId);
+
+    @Query("SELECT m FROM Message m WHERE m.receiver.userId = :chatRoomId")
+    List<Message> getMessageByChatRoomId(@Param("chatRoomId") Integer chatRoomId);
 }

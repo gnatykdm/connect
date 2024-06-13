@@ -28,4 +28,9 @@ public class MessageController {
     public ResponseEntity<List<Message>> getAllMessages(@PathVariable Integer userId) {
         return ResponseEntity.ok(messageService.getMessagesSentByUser(userId));
     }
+
+    @GetMapping("/all-chatroom/{chatRoomId}")
+    public ResponseEntity<List<Message>> getAllByChatRoomId(@PathVariable Integer chatRoomId) {
+        return ResponseEntity.ok(messageService.getMessageByChatRoomId(chatRoomId));
+    }
 }

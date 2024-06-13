@@ -15,9 +15,9 @@
     <top>
         <BorderPane prefHeight="57.0" prefWidth="783.0" style="-fx-background-color: #2b2b2b;">
             <right>
-                <HBox>
+                <HBox fx:id="topRightHBox">
                     <Region prefHeight="57.0" prefWidth="10.0" />
-                    <Button style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 5px;" text="Add">
+                    <Button fx:id="addButton" text="Add" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 5px;">
                         <padding>
                             <Insets right="10.0" />
                         </padding>
@@ -25,7 +25,7 @@
                             <Insets top="20.0" />
                         </HBox.margin>
                     </Button>
-                    <Button style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 5px;" text="Settings">
+                    <Button text="Settings" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 5px;">
                         <padding>
                             <Insets left="10.0" right="10.0" />
                         </padding>
@@ -62,12 +62,12 @@
         </BorderPane>
     </top>
     <left>
-        <VBox prefWidth="250.0" style="-fx-background-color: #242424;">
+        <VBox prefWidth="250.0" style="-fx-background-color: #242424;" VBox.vgrow="ALWAYS">
             <children>
-                <ScrollPane fx:id="chatScrollPane" prefHeight="631.0" prefWidth="250.0" style="-fx-background: #2b2b2b; -fx-border-color: #242424;">
+                <ScrollPane fx:id="chatScrollPane" prefHeight="543.0" prefWidth="0.0" style="-fx-background: #2b2b2b; -fx-border-color: #242424;" VBox.vgrow="ALWAYS">
                     <content>
-                        <VBox fx:id="chatBox" style="-fx-background-color: #2b2b2b;">
-                            <!-- Add chat items here -->
+                        <VBox fx:id="chatBox" prefHeight="78.0" prefWidth="246.0" style="-fx-background-color: #2b2b2b;">
+                            <!-- Динамическое добавление кнопок чатов будет здесь -->
                         </VBox>
                     </content>
                 </ScrollPane>
@@ -89,7 +89,7 @@
                         <TextField fx:id="messageField" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #3c3c3c; -fx-border-color: #c1ff72; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-family: Consolas; -fx-text-fill: #FFFFFF; -fx-padding: 5;" BorderPane.alignment="CENTER" />
                     </center>
                     <right>
-                        <Button fx:id="sendButton" onAction="#sendMessage" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10;" text="Send" textFill="WHITE">
+                        <Button fx:id="sendButton" onAction="#sendMessage" prefHeight="35.0" prefWidth="75.0" text="Send" style="-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10;">
                             <padding>
                                 <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                             </padding>

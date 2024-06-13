@@ -89,4 +89,9 @@ public class MessageServiceImpl implements IMessageService {
         logger.info("Getting messages received by user: {}", userId);
         return messageRepository.findByReceiver(userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found")));
     }
+
+    @Override
+    public List<Message> getMessageByChatRoomId(Integer chatRoomId) {
+        return messageRepository.getMessageByChatRoomId(chatRoomId);
+    }
 }

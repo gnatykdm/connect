@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IMessageRepositoryCustom {
     List<Message> getMessagesSentByUser(Integer userId);
+    List<Message> getMessageByChatRoomId(Integer chatRoomId);
 }

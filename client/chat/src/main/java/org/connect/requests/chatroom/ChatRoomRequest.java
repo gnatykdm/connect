@@ -1,8 +1,11 @@
 package org.connect.requests.chatroom;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.connect.model.entities.ChatRoom;
 
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
@@ -16,15 +19,16 @@ public class ChatRoomRequest implements IChatRoomRequest {
 
     @Override
     public List<ChatRoom> getAllChatRooms(Integer userId) throws Exception {
-        URL url = new URL(URL + "/all/" + userId);
+        URL url = new URL(URL + "/all" + "/" + userId);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Content-Type", "application/json");
         conn.setDoOutput(true);
 
-        try {
-            List<ChatRoom> chatRoomList = obj.readValue(conn.getInputStream(), List.class);
+        obj.registerModule(new JavaTimeModule());
+        try (InputStream inputStream = conn.getInputStream()) {
+            List<ChatRoom> chatRoomList = obj.readValue(inputStream, new TypeReference<List<ChatRoom>>() {});
             if (chatRoomList.isEmpty()) {
                 logger.info("No chat rooms found");
                 return null;
@@ -36,6 +40,7 @@ public class ChatRoomRequest implements IChatRoomRequest {
             return null;
         }
     }
+
 
     @Override
     public ChatRoom createChatRoom(Integer user1, Integer user2) throws Exception {

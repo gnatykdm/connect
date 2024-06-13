@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/ChatRoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/ChatRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/ChatRoomRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/chatroom/ChatRoomServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/chatroom/IChatRoomService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/test/java/com/connect/connect/controller/AuthControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/test/java/com/connect/connect/controller/ChatRoomControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/test/java/com/connect/connect/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/friendship/Friendship.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/friendship/FriendshipId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/friends/FriendShipRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/friends/FriendShipService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/friends/IFriendshipService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/IMessageRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/IMessageRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,6 +283,19 @@
       <workItem from="1717656740799" duration="717000" />
       <workItem from="1717657672846" duration="238000" />
       <workItem from="1717657946857" duration="106000" />
+      <workItem from="1717672174752" duration="606000" />
+      <workItem from="1717709608096" duration="64000" />
+      <workItem from="1717764529929" duration="1870000" />
+      <workItem from="1717948113747" duration="93000" />
+      <workItem from="1718004826017" duration="2142000" />
+      <workItem from="1718051523981" duration="119000" />
+      <workItem from="1718055129382" duration="909000" />
+      <workItem from="1718056129086" duration="2222000" />
+      <workItem from="1718096821430" duration="9000" />
+      <workItem from="1718096934359" duration="2125000" />
+      <workItem from="1718219190482" duration="1096000" />
+      <workItem from="1718265835642" duration="299000" />
+      <workItem from="1718267571532" duration="325000" />
     </task>
     <servers />
   </component>

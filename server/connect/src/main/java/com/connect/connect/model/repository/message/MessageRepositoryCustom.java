@@ -22,4 +22,15 @@ public class MessageRepositoryCustom implements IMessageRepositoryCustom {
         Query query = manager.createQuery("from Message m where m.sender.userId = :userId");
         return query.getResultList();
     }
+
+    @Override
+    public List<Message> getMessageByChatRoomId(Integer chatRoomId) {
+        if (chatRoomId == null) {
+            throw new NullPointerException("Chat room ID cannot be null");
+        }
+
+        Query query = manager.createQuery("from Message m where m.receiver.userId = :chatRoomId", Message.class);
+        query.setParameter("chatRoomId", chatRoomId);
+        return query.getResultList();
+    }
 }
