@@ -52,7 +52,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="userName" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="225.0" promptText="Username" style="-fx-background-radius: 15px; -fx-border-color: #c1ff72; -fx-border-radius: 15px;">
+            <TextField fx:id="userName" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="225.0" promptText="Username" style="-fx-background-radius: 15px; -fx-border-color: #c1ff72; -fx-border-radius: 15px; -fx-background-color: #3c3c3c; -fx-text-fill: #FFFFFF;">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -60,7 +60,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="userPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="224.0" promptText="Password" style="-fx-background-radius: 15px; -fx-border-color: #c1ff72; -fx-border-radius: 15px;">
+            <PasswordField fx:id="userPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="224.0" promptText="Password" style="-fx-background-radius: 15px; -fx-border-color: #c1ff72; -fx-border-radius: 15px; -fx-background-color: #3c3c3c; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

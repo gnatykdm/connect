@@ -6,7 +6,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 import org.connect.model.entities.ChatRoom;
 import org.connect.model.entities.Message;
@@ -26,14 +25,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ChatController {
-    @FXML private TextField messageField;
+    @FXML private TextArea messageField;
     @FXML private Button sendButton;
     @FXML private VBox messagesBox;
     @FXML private ScrollPane messagesScrollPane;
     @FXML private Label usernameLabel;
     @FXML private Button addButton;
     @FXML private VBox chatBox;
-    @FXML private HBox statusBar;
     @FXML private Label chatWithLabel;
 
     private User user = new User();
@@ -52,6 +50,7 @@ public class ChatController {
         try {
             initializeUIComponents();
             loadChatRooms();
+            setupTextAreaAutoResize();
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Failed to initialize ChatController", e);
         }
@@ -74,6 +73,21 @@ public class ChatController {
         });
     }
 
+    private void setupTextAreaAutoResize() {
+        messageField.setWrapText(true);
+        messageField.textProperty().addListener((observable, oldValue, newValue) -> {
+            double newHeight = computeTextHeight(newValue);
+            messageField.setPrefHeight(newHeight);
+            sendButton.setPrefHeight(newHeight);
+        });
+    }
+
+    private double computeTextHeight(String text) {
+        int lines = text.split("\n").length;
+        double lineHeight = 20;
+        return lines * lineHeight + 20;
+    }
+
     private void loadChatRooms() {
         LOGGER.info("Loading chat rooms for userId: " + user.getUserId());
         try {
@@ -85,14 +99,28 @@ public class ChatController {
                 chatBox.getChildren().clear();
                 for (ChatRoom chatRoom : chatRooms) {
                     Button chatButton = new Button(chatRoom.getUser2().getUsername());
-                    chatButton.setStyle(BUTTON_DEFAULT_STYLE);
+                    chatButton.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;");
                     chatButton.setMaxWidth(Double.MAX_VALUE);
                     chatButton.setAlignment(Pos.CENTER_LEFT);
+                    chatButton.setPadding(new Insets(10, 20, 10, 20));
 
-                    chatButton.setOnMouseEntered(e -> chatButton.setStyle(BUTTON_HOVER_STYLE));
-                    chatButton.setOnMouseExited(e -> chatButton.setStyle(BUTTON_DEFAULT_STYLE));
+                    chatButton.setOnMouseEntered(e -> chatButton.setStyle("-fx-background-color: #3c3c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;"));
+                    chatButton.setOnMouseExited(e -> chatButton.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;"));
 
                     chatButton.setOnAction(event -> openChatWindow(chatRoom));
+
+                    // Create context menu
+                    ContextMenu contextMenu = new ContextMenu();
+                    MenuItem deleteItem = new MenuItem("Delete");
+                    deleteItem.setStyle("-fx-text-fill: #FF0000; -fx-font-size: 14px; -fx-background-color: #3c3c3c");
+                    contextMenu.getItems().add(deleteItem);
+
+                    // Set context menu on button
+                    chatButton.setOnContextMenuRequested(event -> contextMenu.show(chatButton, event.getScreenX(), event.getScreenY()));
+
+                    // Set action for delete item
+                    //sdeleteItem.setOnAction(event -> deleteChatRoom(chatRoom));
+
                     chatBox.getChildren().add(chatButton);
                 }
                 addButton.setVisible(chatRooms.isEmpty());
@@ -116,12 +144,10 @@ public class ChatController {
             List<Message> messages = messageRequest.getMessages(chatRoom.getUser2().getUserId(), user.getUserId());
             messageList.addAll(messages);
 
-            messageList = sortMessagesByTime(messageList);
-            if (messageList != null) {
-                for (Message message : messageList) {
-                    displayMessage(message);
-                }
+            for (Message message : sortMessagesByTime(messageList)) {
+                displayMessage(message);
             }
+
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Failed to load messages", e);
         }
@@ -173,9 +199,9 @@ public class ChatController {
 
         String backgroundColor;
         if (message.getSender().getUserId().equals(user.getUserId())) {
-            backgroundColor = "#8379e7"; // Background color for sender
+            backgroundColor = "#8379e7";
         } else {
-            backgroundColor = "#555555FF"; // Background color for receiver
+            backgroundColor = "#555555FF";
         }
         messageLabel.setStyle("-fx-background-color: " + backgroundColor + "; -fx-background-insets: 0; -fx-background-radius: 10; " +
                 "-fx-border-color: " + backgroundColor + "; -fx-border-radius: 10; -fx-border-width: 1; -fx-padding: 5px; -fx-text-fill: white; -fx-font-size: 14px;");
@@ -195,7 +221,9 @@ public class ChatController {
 
         Platform.runLater(() -> {
             messagesBox.getChildren().add(messageContainer);
-            messagesScrollPane.setVvalue(1.0);
+            messagesScrollPane.layout();
+
+            messagesScrollPane.setVvalue(messagesScrollPane.getVmax());
         });
     }
 

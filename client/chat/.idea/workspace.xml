@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../server/connect/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/IMessageRepositoryCustom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepositoryCustom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -338,6 +326,9 @@
       <workItem from="1718297051810" duration="774000" />
       <workItem from="1718297955375" duration="4902000" />
       <workItem from="1718310157942" duration="2907000" />
+      <workItem from="1718351340871" duration="424000" />
+      <workItem from="1718352252123" duration="135000" />
+      <workItem from="1718353653897" duration="3526000" />
     </task>
     <servers />
   </component>
