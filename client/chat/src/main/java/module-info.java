@@ -22,11 +22,13 @@ module org.chatgui.chatgui {
 
     opens org.connect to javafx.fxml;
     exports org.connect;
-    exports org.connect.controller;
-    opens org.connect.controller to javafx.fxml;
+    exports org.connect.controller.settings to javafx.fxml;
     exports org.connect.model.entities to com.fasterxml.jackson.databind;
     exports org.connect.controller.logcontrollers;
     exports org.connect.model.dto to com.fasterxml.jackson.databind;
     opens org.connect.model.entities to org.hibernate.orm.core;
+    opens org.connect.controller.settings to javafx.fxml;
     opens org.connect.controller.logcontrollers to javafx.fxml;
+    exports org.connect.controller.maincontroller;
+    opens org.connect.controller.maincontroller to javafx.fxml;
 }

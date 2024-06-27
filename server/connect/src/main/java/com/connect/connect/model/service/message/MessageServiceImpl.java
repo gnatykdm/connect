@@ -10,10 +10,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.async.DeferredResult;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 @Service
 public class MessageServiceImpl implements IMessageService {
@@ -29,69 +32,68 @@ public class MessageServiceImpl implements IMessageService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public void sendMessage(Integer senderId, Integer receiverId, String content) {
+    private final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
+    @Override
+    @Transactional
+    public Message sendMessage(Integer senderId, Integer receiverId, String content) {
         logger.info("Sending message from user: {} to user: {}", senderId, receiverId);
-        Optional<User> senderOpt = userRepository.findById(senderId);
-        Optional<User> receiverOpt = userRepository.findById(receiverId);
+        User sender = userRepository.findByUserId(senderId);
+        User receiver = userRepository.findByUserId(receiverId);
 
-        logger.info("Sender: {}", senderOpt);
-        if (senderOpt.isPresent() && receiverOpt.isPresent()) {
-            User sender= senderOpt.get();
-            User receiver = receiverOpt.get();
-
-            ChatRoom chatRoom = chatRoomRepository.findByUser1AndUser2(sender, receiver);
-            if (chatRoom == null) {
-                chatRoom = new ChatRoom(sender, receiver);
-            }
-
-            logger.info("Chat room: {}", chatRoom);
+        ChatRoom chatRoom = chatRoomRepository.findByUser1AndUser2(sender, receiver);
+        if (chatRoom == null) {
+            chatRoom = new ChatRoom(sender, receiver);
             chatRoomRepository.save(chatRoom);
-
-            logger.info("Chat room saved");
-            Message message = new Message(chatRoom, sender, receiver, content, LocalDateTime.now());
-
-            logger.info("Message: {}", message);
-            messageRepository.save(message);
-        } else {
-            logger.info("Invalid sender or receiver");
-            throw new IllegalArgumentException("Invalid sender or receiver");
         }
+
+        Message message = new Message(chatRoom, sender, receiver, content, LocalDateTime.now());
+        messageRepository.save(message);
+        return message;
     }
 
     @Override
-    public void deleteMessage(Integer messageId) {
-        Optional<Message> message = messageRepository.findById(messageId);
-        if (message.isPresent()) {
-            logger.info("Deleting message: {}", message.get());
-            messageRepository.delete(message.get());
-        } else {
-            logger.info("Message not found");
-            throw new IllegalArgumentException("Message not found");
-        }
-    }
-
-    @Override
+    @Transactional
     public Message getMessageById(Integer messageId) {
-        logger.info("Getting message by id: {}", messageId);
-        return messageRepository.findById(messageId).orElseThrow(() -> new IllegalArgumentException("Message not found"));
+        return messageRepository.findById(messageId)
+                .orElseThrow(() -> new IllegalArgumentException("Message not found"));
     }
 
     @Override
-    public List<Message> getMessagesSentByUser(Integer userId) {
-        logger.info("Getting messages sent by user: {}", userId);
-        return messageRepository.findBySender(userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found")));
-    }
-
-    @Override
-    public List<Message> getMessagesReceivedByUser(Integer userId) {
-        logger.info("Getting messages received by user: {}", userId);
-        return messageRepository.findByReceiver(userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found")));
-    }
-
-    @Override
+    @Transactional
     public List<Message> getMessagesBetweenUsers(Integer userId1, Integer userId2) {
-        return messageRepository.getMessagesBetweenUsers(userId1, userId2);
+        List<Message> all = new ArrayList<>();
+
+        List<Message> senderToReceiver = messageRepository.getMessagesBetweenUsers(userId1, userId2);
+        all.addAll(senderToReceiver);
+
+        List<Message> receiverToSender = messageRepository.getMessagesBetweenUsers(userId2, userId1);
+        all.addAll(receiverToSender);
+
+        Set<Integer> messageIds = new HashSet<>();
+        List<Message> uniqueMessages = new ArrayList<>();
+
+        for (Message message : all) {
+            if (messageIds.add(message.getMessageId())) {
+                uniqueMessages.add(message);
+            }
+        }
+        return uniqueMessages;
+    }
+
+
+    @Override
+    public List<Message> getNewMessages(Integer userId, Integer user2Id, List<Message> result) {
+        List<Message> allMessages = messageRepository.getMessagesBetweenUsers(userId, user2Id);
+
+        Set<Integer> resultMessageIds = result.stream()
+                .map(Message::getMessageId)
+                .collect(Collectors.toSet());
+
+        List<Message> newMessages = allMessages.stream()
+                .filter(message -> !resultMessageIds.contains(message.getMessageId()))
+                .collect(Collectors.toList());
+
+        return newMessages;
     }
 }

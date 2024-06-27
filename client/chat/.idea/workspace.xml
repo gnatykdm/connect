@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="" />
+    <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dto/MessageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/ChatRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/ChatRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/ChatRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/ChatRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/ChatRoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/ChatRoomRepositoryCustom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/IChatRoomRepositoryCustom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/util/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/util/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,11 +32,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="FxmlFile" />
         <option value="package.json" />
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -88,10 +106,11 @@
       <recent name="org.connect.model.entities" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\connect\client\chat\src\main\resources\org\connect\view\settingsview" />
+      <recent name="D:\connect\client\chat\src\main\resources\org\connect\view\logviews" />
       <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\view\logviews" />
       <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\chatgui\view\settingsview" />
       <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\chatgui\view\logviews" />
-      <recent name="C:\Users\User\Desktop\chatFlow\chatGUI\src\main\resources\org\chatgui\chatgui\view" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -154,12 +173,12 @@
       <module name="chat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.connect.model.requests.user.*" />
+          <option name="PATTERN" value="org.connect.model.service.user.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.connect.model.requests.user" />
-      <option name="MAIN_CLASS_NAME" value="org.connect.model.requests.user.UserRequestClientTest" />
+      <option name="MAIN_CLASS_NAME" value="org.connect.model.service.user.UserRequestClientTest" />
       <option name="METHOD_NAME" value="loginUserIdRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -170,12 +189,12 @@
       <module name="chat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.connect.model.requests.user.*" />
+          <option name="PATTERN" value="org.connect.model.service.user.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.connect.model.requests.user" />
-      <option name="MAIN_CLASS_NAME" value="org.connect.model.requests.user.UserRequestClientTest" />
+      <option name="MAIN_CLASS_NAME" value="org.connect.model.service.user.UserRequestClientTest" />
       <option name="METHOD_NAME" value="loginUserRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -329,6 +348,41 @@
       <workItem from="1718351340871" duration="424000" />
       <workItem from="1718352252123" duration="135000" />
       <workItem from="1718353653897" duration="3526000" />
+      <workItem from="1718403886551" duration="84000" />
+      <workItem from="1718449792905" duration="17000" />
+      <workItem from="1718574814404" duration="7000" />
+      <workItem from="1718576065028" duration="3000" />
+      <workItem from="1718821513635" duration="202000" />
+      <workItem from="1718822484395" duration="354000" />
+      <workItem from="1718822906681" duration="619000" />
+      <workItem from="1718823625371" duration="180000" />
+      <workItem from="1718824160269" duration="67000" />
+      <workItem from="1718824315575" duration="438000" />
+      <workItem from="1718836946192" duration="32000" />
+      <workItem from="1718837420875" duration="855000" />
+      <workItem from="1718838712898" duration="636000" />
+      <workItem from="1718842871450" duration="40000" />
+      <workItem from="1718843534675" duration="54000" />
+      <workItem from="1719076543932" duration="248000" />
+      <workItem from="1719076884186" duration="157000" />
+      <workItem from="1719077088110" duration="84000" />
+      <workItem from="1719085650415" duration="202000" />
+      <workItem from="1719086358238" duration="118000" />
+      <workItem from="1719087761324" duration="146000" />
+      <workItem from="1719088017063" duration="463000" />
+      <workItem from="1719088606951" duration="220000" />
+      <workItem from="1719089595849" duration="1847000" />
+      <workItem from="1719142149729" duration="7000" />
+      <workItem from="1719163672019" duration="510000" />
+      <workItem from="1719164209670" duration="169000" />
+      <workItem from="1719164911680" duration="225000" />
+      <workItem from="1719165474048" duration="2183000" />
+      <workItem from="1719172203276" duration="129000" />
+      <workItem from="1719172459446" duration="89000" />
+      <workItem from="1719172587471" duration="4795000" />
+      <workItem from="1719494230072" duration="4166000" />
+      <workItem from="1719512863473" duration="2625000" />
+      <workItem from="1719516149138" duration="716000" />
     </task>
     <servers />
   </component>

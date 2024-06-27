@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Comparator;
 import java.util.Set;
 
 @Data
@@ -12,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "chatrooms")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ChatRoom {
+public class ChatRoom implements Comparator<ChatRoom> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,4 +40,20 @@ public class ChatRoom {
         this.user1 = user1;
         this.user2 = user2;
     }
+
+    @Override
+    public int compare(ChatRoom o1, ChatRoom o2) {
+        return o1.getRoom().compareTo(o2.getRoom());
+    }
+
+    @Override
+    public String toString() {
+        return "ChatRoom{" +
+                "room=" + room +
+                ", user1=" + user1 +
+                ", user2=" + user2 +
+                ", messages=" + messages +
+                '}';
+    }
+
 }

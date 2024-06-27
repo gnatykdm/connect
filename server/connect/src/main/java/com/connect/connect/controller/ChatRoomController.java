@@ -21,7 +21,6 @@ public class ChatRoomController {
 
     @Autowired
     private IUserService userService;
-
     private static final Logger logger = LoggerFactory.getLogger(ChatRoomController.class);
 
     @PostMapping("/register/{user1Id}/{user2Id}")
@@ -49,6 +48,8 @@ public class ChatRoomController {
     @GetMapping("/all/{userId}")
     public ResponseEntity<List<ChatRoom>> getAllChatRoomById(@PathVariable Integer userId) {
         logger.info("Getting all chat rooms for user with ID: {}", userId);
-        return ResponseEntity.ok(chatRoomService.findAllByUser1Id(userId));
+
+        List<ChatRoom> allChatRooms = chatRoomService.findAllByUser1Id(userId);
+        return ResponseEntity.ok(allChatRooms);
     }
 }

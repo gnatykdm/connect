@@ -41,4 +41,16 @@ public class Message {
         this.messageText = messageText;
         this.timestamp = timestamp;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "messageId=" + messageId +
+                ", room=" + room +
+                ", sender=" + sender +
+                ", receiver=" + receiver +
+                ", messageText='" + messageText + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
+    }
 }

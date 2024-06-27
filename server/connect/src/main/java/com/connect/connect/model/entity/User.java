@@ -48,4 +48,19 @@ public class User  {
         this.password = password;
         this.registerDate = registerDate;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", registerDate=" + registerDate +
+                ", sentMessages=" + sentMessages +
+                ", receivedMessages=" + receivedMessages +
+                ", chatRooms1=" + chatRooms1 +
+                ", chatRooms2=" + chatRooms2 +
+                '}';
+    }
 }

@@ -11,10 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.connect.controller.ChatController;
+import org.connect.controller.maincontroller.ChatController;
 import org.connect.model.dto.UserDTO;
 import org.connect.model.entities.User;
-import org.connect.model.requests.user.UserRequestClient;
+import org.connect.model.service.user.UserRequestClient;
 
 import java.io.IOException;
 
@@ -75,13 +75,9 @@ public class SignController {
     }
 
     @FXML
-    public void switchButton(ActionEvent event) {
-        switchScene("/org/connect/view/logviews/login.fxml", event);
-    }
-
-    private void switchScene(String path, ActionEvent event) {
+    private void switchButton(ActionEvent event) {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource(path));
+            Parent parent = FXMLLoader.load(getClass().getResource("/org/connect/view/logviews/login.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(parent);
 

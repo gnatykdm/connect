@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
@@ -28,7 +28,8 @@ public class User  {
     private String password;
 
     @Column(name = "register_date", nullable = false)
-    private LocalDate registerDate;
+    private LocalDateTime registerDate;
+
 
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     private Set<Message> sentMessages;
@@ -42,10 +43,22 @@ public class User  {
     @OneToMany(mappedBy = "user2", cascade = CascadeType.ALL)
     private Set<ChatRoom> chatRooms2;
 
-    public User(String username, String email, String password, LocalDate registerDate) {
+
+    public User(String username, String email, String password, LocalDateTime registerDate) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.registerDate = registerDate;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", registerDate=" + registerDate +
+                '}';
     }
 }
