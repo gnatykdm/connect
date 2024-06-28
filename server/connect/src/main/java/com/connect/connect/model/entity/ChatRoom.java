@@ -36,7 +36,7 @@ public class ChatRoom {
 
     @Override
     public String toString() {
-        return "ChatRoom{" +
+        return "ChatRoomDTO{" +
                 "room=" + room +
                 ", user1=" + user1 +
                 ", user2=" + user2 +

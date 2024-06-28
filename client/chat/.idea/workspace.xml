@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/dto/MessageDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/ChatRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/ChatRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/ChatRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/ChatRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/ChatRoomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/ChatRoomRepositoryCustom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/chatroom/IChatRoomRepositoryCustom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/message/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/repository/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/IMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/message/MessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/util/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/util/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +77,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -383,6 +368,13 @@
       <workItem from="1719494230072" duration="4166000" />
       <workItem from="1719512863473" duration="2625000" />
       <workItem from="1719516149138" duration="716000" />
+      <workItem from="1719516981286" duration="45000" />
+      <workItem from="1719522831572" duration="32000" />
+      <workItem from="1719591678964" duration="1407000" />
+      <workItem from="1719593412761" duration="283000" />
+      <workItem from="1719593764481" duration="2592000" />
+      <workItem from="1719600937571" duration="2995000" />
+      <workItem from="1719608099443" duration="3127000" />
     </task>
     <servers />
   </component>

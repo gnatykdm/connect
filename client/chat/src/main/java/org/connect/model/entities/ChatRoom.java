@@ -1,5 +1,6 @@
 package org.connect.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -36,7 +37,11 @@ public class ChatRoom implements Comparator<ChatRoom> {
     @JsonProperty("messages")
     private Set<Message> messages;
 
-    public ChatRoom(User user1, User user2) {
+    @JsonCreator
+    public ChatRoom(
+            @JsonProperty("user1") User user1,
+            @JsonProperty("user2") User user2
+    ) {
         this.user1 = user1;
         this.user2 = user2;
     }

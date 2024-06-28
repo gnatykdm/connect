@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.connect.model.entities.ChatRoom;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
@@ -57,10 +59,23 @@ public class ChatRoomRequest implements IChatRoomRequest {
 
         int responseCode = conn.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
-            return obj.readValue(conn.getInputStream(), ChatRoom.class);
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuilder response = new StringBuilder();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            String jsonResponse = response.toString();
+            logger.info("Response: " + jsonResponse);
+
+            return obj.readValue(jsonResponse, ChatRoom.class);
         } else {
             logger.info("Error: " + responseCode);
             return null;
         }
     }
+
 }

@@ -24,7 +24,7 @@
             </Label>
          </left>
          <right>
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;" text="Button" BorderPane.alignment="CENTER">
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#switchToHome" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;" text="Button" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="15.0" />
                </BorderPane.margin>
@@ -33,26 +33,26 @@
       </BorderPane>
    </top>
    <center>
-      <VBox alignment="CENTER" prefWidth="720.0" spacing="10">
+      <VBox alignment="CENTER" prefWidth="720.0" spacing="20">
          <Label text="User Search" textFill="WHITE">
             <font>
-               <Font name="System Bold" size="18.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
          </Label>
-         <HBox alignment="CENTER" onDragDetected="#searchUsers" prefWidth="720.0" spacing="10">
+         <HBox alignment="CENTER" prefWidth="720.0" spacing="10">
             <TextField fx:id="searchField" prefWidth="600.0" promptText="Search users..." style="-fx-background-radius: 15px; -fx-border-color: #c1ff72; -fx-border-radius: 15px; -fx-background-color: #3c3c3c; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="searchButton" style="-fx-background-color: #8379e7; -fx-background-radius: 10px; -fx-text-fill: #ffffff;" text="Search">
+            <Button fx:id="searchButton" onAction="#searchUsers" style="-fx-background-color: #8379e7; -fx-background-radius: 10px; -fx-text-fill: #ffffff;" text="Search">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </HBox>
-         <ScrollPane fx:id="usersScrollPane" prefHeight="300.0" prefWidth="720.0" style="-fx-background: #242424; -fx-border-color: #242424;">
-            <VBox fx:id="usersBox" spacing="10" style="-fx-background-color: #2b2b2b;">
+         <ScrollPane fx:id="usersScrollPane" prefHeight="300.0" prefWidth="604.0" style="-fx-background: #242424; -fx-border-color: #242424;">
+            <VBox fx:id="usersBox" spacing="10" style="-fx-background-color: #2b2b2b; -fx-padding: 10px;">
                <!-- User items will be added here dynamically -->
             </VBox>
          </ScrollPane>

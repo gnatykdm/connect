@@ -24,7 +24,7 @@ public class ChatRoomController {
     private static final Logger logger = LoggerFactory.getLogger(ChatRoomController.class);
 
     @PostMapping("/register/{user1Id}/{user2Id}")
-    public ResponseEntity<?> registerRoom(@PathVariable Integer user1Id, @PathVariable Integer user2Id) {
+    public ResponseEntity<ChatRoom> registerRoom(@PathVariable Integer user1Id, @PathVariable Integer user2Id) {
 
         logger.info("Registering chat room between users: {} and {}", user1Id, user2Id);
 
@@ -34,7 +34,7 @@ public class ChatRoomController {
         ChatRoom chatRoom = new ChatRoom(user1, user2);
         chatRoomService.registerRoom(chatRoom);
 
-        return ResponseEntity.ok("Room was Created");
+        return ResponseEntity.ok(chatRoom);
     }
 
     @DeleteMapping("/drop/{roomId}")

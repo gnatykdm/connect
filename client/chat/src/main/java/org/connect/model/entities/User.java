@@ -1,5 +1,7 @@
 package org.connect.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,7 +32,6 @@ public class User  {
     @Column(name = "register_date", nullable = false)
     private LocalDateTime registerDate;
 
-
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     private Set<Message> sentMessages;
 
@@ -43,8 +44,15 @@ public class User  {
     @OneToMany(mappedBy = "user2", cascade = CascadeType.ALL)
     private Set<ChatRoom> chatRooms2;
 
-
-    public User(String username, String email, String password, LocalDateTime registerDate) {
+    @JsonCreator
+    public User(
+            @JsonProperty("userId") Integer userId,
+            @JsonProperty("username") String username,
+            @JsonProperty("email") String email,
+            @JsonProperty("password") String password,
+            @JsonProperty("registerDate") LocalDateTime registerDate
+    ) {
+        this.userId = userId;
         this.username = username;
         this.email = email;
         this.password = password;
