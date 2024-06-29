@@ -25,7 +25,6 @@ import org.connect.model.service.user.IUserRequest;
 import org.connect.model.service.user.UserRequestClient;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.*;
@@ -64,7 +63,7 @@ public class ChatController {
     private static final String SEND_BUTTON_HOVER = "-fx-background-color: #242424; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-color: #c1ff72; -fx-background-radius: 10px;";
 
     private final List<ChatRoom> friends = new ArrayList<>();
-    private final Set<Message> displayedMessage = new HashSet<>();
+    private Set<Integer> displayedMessageIds = new HashSet<>();
 
     public void initialize() {
 
@@ -118,6 +117,7 @@ public class ChatController {
             LOGGER.info("Loading chat rooms for userId: " + user.getUserId());
             try {
                 final List<ChatRoom> getChatRooms = chatRoomRequest.getAllChatRooms(user.getUserId());
+                friends.addAll(getChatRooms);
                 Platform.runLater(() -> {
                     chatBox.getChildren().clear();
                     Set<String> usernames = new HashSet<>();
@@ -141,7 +141,6 @@ public class ChatController {
                         }
                     }
                 });
-
             } catch (Exception e) {
                 LOGGER.log(Level.SEVERE, "Failed to load chat rooms", e);
             }
@@ -149,15 +148,13 @@ public class ChatController {
         Platform.runLater(() -> scheduledExecutor.scheduleAtFixedRate(task, 0, 5, TimeUnit.SECONDS));
     }
 
-    private void loadMessages(ChatRoom chatRoom) {
+    private void loadMessages() {
         Runnable task = () -> {
             try {
                 List<Message> messageList = messageRequest.getMessages(user.getUserId(), receiverId);
-
                 for (Message message : sortMessagesByTime(messageList)) {
                     displayMessage(message);
                 }
-
             } catch (Exception e) {
                 LOGGER.log(Level.SEVERE, "Failed to load messages", e);
             }
@@ -168,7 +165,7 @@ public class ChatController {
     private void openChatWindow(ChatRoom chatRoom) {
         receiverId = chatRoom.getUser2().getUserId();
         chatWithLabel.setText("Chat with: " + chatRoom.getUser2().getUsername());
-        loadMessages(chatRoom);
+        loadMessages();
     }
 
     @FXML
@@ -177,13 +174,7 @@ public class ChatController {
         if (!content.isEmpty()) {
             try {
                 messageRequest.sendMessage(user.getUserId(), receiverId, content);
-                User receiver = userRequest.getUserById(receiverId);
-
-                Set<Message> displayedMessages = new HashSet<>();
-                Message message = new Message(null, user, receiver, content, LocalDateTime.now());
-                if (displayedMessages.add(message)) {
-                    displayMessage(message);
-                }
+                messageField.clear();
             } catch (Exception e) {
                 LOGGER.log(Level.SEVERE, "Failed to send message", e);
             }
@@ -205,60 +196,62 @@ public class ChatController {
 
     private void displayMessage(Message message) {
         Platform.runLater(() -> {
-            if (message.getSender().getUserId().equals(user.getUserId()) ||
-                    message.getReceiver().getUserId().equals(user.getUserId())) {
-
-                if (!displayedMessage.contains(message.getMessageText())) {
-                    displayedMessage.add(message);
-
-                    Label messageLabel = new Label(message.getMessageText());
-                    messageLabel.setWrapText(true);
-                    messageLabel.setStyle("-fx-background-insets: 0; -fx-background-radius: 10;");
-
-                    String backgroundColor;
-                    if (message.getSender().getUserId().equals(user.getUserId())) {
-                        backgroundColor = "#8379e7";
-                    } else {
-                        backgroundColor = "#555555FF";
-                    }
-                    messageLabel.setStyle("-fx-background-color: " + backgroundColor + "; -fx-background-insets: 0; -fx-background-radius: 10; " +
-                            "-fx-border-color: " + backgroundColor + "; -fx-border-radius: 10; -fx-border-width: 1; -fx-padding: 5px; -fx-text-fill: white; -fx-font-size: 14px;");
-
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-                    String formattedTimestamp = message.getTimestamp().format(formatter);
-                    Label senderLabel = new Label("Sent by: " + message.getSender().getUsername() + " at " + formattedTimestamp);
-                    senderLabel.setStyle("-fx-text-fill: #555555; -fx-font-size: 10px;");
-                    senderLabel.setTextAlignment(TextAlignment.RIGHT);
-
-                    VBox messageContainer = new VBox(messageLabel, senderLabel);
-                    messageContainer.setSpacing(4);
-                    messageContainer.setPadding(new Insets(4, 10, 0, 5));
-
-                    messageContainer.setMaxWidth(Double.MAX_VALUE);
-                    HBox.setHgrow(messageContainer, Priority.ALWAYS);
-
-                    messagesScrollPane.vvalueProperty().unbind();
-                    messagesBox.getChildren().add(messageContainer);
-                    messagesScrollPane.layout();
-                    messagesScrollPane.setVvalue(1.0);
-                }
+            if (shouldDisplayMessage(message) && !displayedMessageIds.contains(message.getMessageId())) {
+                displayedMessageIds.add(message.getMessageId());
+                VBox messageContainer = createMessageContainer(message);
+                addMessageToBox(messageContainer);
+                scrollToBottom();
             }
         });
     }
 
-    @FXML
-    private void switchPlusButton(ActionEvent event) throws IOException {
-        stopExecutorService();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/connect/view/settingsview/adduser.fxml"));
-        Parent parent = loader.load();
-        AddUserController controller = loader.getController();
-        controller.setUser(user);
-        controller.setChatRooms(friends);
+    private boolean shouldDisplayMessage(Message message) {
+        return message.getSender().getUserId().equals(user.getUserId()) ||
+                message.getReceiver().getUserId().equals(user.getUserId());
+    }
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
+    private VBox createMessageContainer(Message message) {
+        Label messageLabel = new Label(message.getMessageText());
+        messageLabel.setWrapText(true);
+        messageLabel.setStyle("-fx-background-insets: 0; -fx-background-radius: 10;");
+
+        if (message.getSender().getUserId().equals(user.getUserId())) {
+            messageLabel.setStyle("-fx-background-color: #c1ff72; -fx-text-fill: #242424; -fx-font-size: 14px; -fx-padding: 10px; -fx-background-radius: 10;");
+            messageLabel.setAlignment(Pos.CENTER_LEFT);
+        } else {
+            messageLabel.setStyle("-fx-background-color: #3c3c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px; -fx-background-radius: 10;");
+            messageLabel.setAlignment(Pos.CENTER_RIGHT);
+        }
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedTimestamp = message.getTimestamp().format(formatter);
+        Label senderLabel = new Label("Sent by: " + message.getSender().getUsername() + " at " + formattedTimestamp);
+        senderLabel.setStyle("-fx-text-fill: #555555; -fx-font-size: 10px;");
+        senderLabel.setTextAlignment(TextAlignment.RIGHT);
+
+        VBox messageContainer = new VBox(messageLabel, senderLabel);
+        messageContainer.setSpacing(4);
+        messageContainer.setPadding(new Insets(4, 10, 0, 5));
+        messageContainer.setMaxWidth(Double.MAX_VALUE);
+        HBox.setHgrow(messageContainer, Priority.ALWAYS);
+
+        return messageContainer;
+    }
+
+    private void addMessageToBox(VBox messageContainer) {
+        messagesScrollPane.vvalueProperty().unbind();
+        messagesBox.getChildren().add(messageContainer);
+        messagesScrollPane.layout();
+    }
+
+    private void scrollToBottom() {
+        messagesScrollPane.setVvalue(1.0);
+    }
+
+
+    @FXML
+    private void switchPlusButton(ActionEvent event) {
+        switchScene("/org/connect/view/settingsview/adduser.fxml", event);
     }
 
     @FXML
@@ -267,13 +260,16 @@ public class ChatController {
     }
 
     private void switchScene(String path, ActionEvent event) {
+        stopExecutorService();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
         try {
-            stopExecutorService();
+            Parent parent = loader.load();
+            AddUserController controller = loader.getController();
+            controller.setUser(user);
+            controller.setChatRooms(friends);
 
-            Parent parent = FXMLLoader.load(getClass().getResource(path));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(parent);
-
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

@@ -18,6 +18,8 @@ import lombok.Setter;
 import org.connect.controller.maincontroller.ChatController;
 import org.connect.model.entities.ChatRoom;
 import org.connect.model.entities.User;
+import org.connect.model.service.chatroom.ChatRoomRequest;
+import org.connect.model.service.chatroom.IChatRoomRequest;
 import org.connect.model.service.message.IMessageRequest;
 import org.connect.model.service.message.MessageRequest;
 import org.connect.model.service.user.IUserRequest;
@@ -33,8 +35,9 @@ public class AddUserController {
     @FXML private VBox usersBox;
     @FXML private Button homeButton;
 
-    IUserRequest userRequest = new UserRequestClient();
-    IMessageRequest messageRequest = new MessageRequest();
+    private final IUserRequest userRequest = new UserRequestClient();
+    private final IMessageRequest messageRequest = new MessageRequest();
+    private final IChatRoomRequest chatRoomRequest = new ChatRoomRequest();
 
     private final String SEARCH_BUTTON_DEFAULT = "-fx-background-color: #8379e7; -fx-text-fill: #ffffff; -fx-background-radius: 10px;";
     private final String SEARCH_BUTTON_HOVER = "-fx-background-color: #969de2; -fx-text-fill: #ffffff; -fx-background-radius: 10px;";
@@ -56,6 +59,7 @@ public class AddUserController {
         searchButton.setOnMouseEntered(e -> searchButton.setStyle(SEARCH_BUTTON_HOVER));
         searchButton.setOnMouseExited(e -> searchButton.setStyle(SEARCH_BUTTON_DEFAULT));
 
+        homeButton.setText("Home");
         homeButton.setStyle(HOME_BUTTON_DEFAULT);
         homeButton.setOnMouseEntered(e -> homeButton.setStyle(HOME_BUTTON_HOVER));
         homeButton.setOnMouseExited(e -> homeButton.setStyle(HOME_BUTTON_DEFAULT));
@@ -106,7 +110,7 @@ public class AddUserController {
 
         addButton.setOnAction(e -> {
             try {
-                messageRequest.sendMessage(user.getUserId(), getUser.getUserId(), "Hello there!");
+                chatRoomRequest.createChatRoom(user.getUserId(), getUser.getUserId());
                 displayMessage("User already added", javafx.scene.paint.Color.WHITE);
             } catch (Exception ex) {
                 ex.printStackTrace();

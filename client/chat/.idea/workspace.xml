@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/ChatRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/ChatRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/entity/ChatRoom.java" afterDir="false" />
-    </list>
+    <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -375,6 +372,7 @@
       <workItem from="1719593764481" duration="2592000" />
       <workItem from="1719600937571" duration="2995000" />
       <workItem from="1719608099443" duration="3127000" />
+      <workItem from="1719658542461" duration="6557000" />
     </task>
     <servers />
   </component>

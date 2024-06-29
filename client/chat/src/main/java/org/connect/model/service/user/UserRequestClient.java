@@ -135,4 +135,19 @@ public class UserRequestClient implements IUserRequest {
             httpURLConnection.disconnect();
         }
     }
+
+    @Override
+    public void updateUserName(String name) {
+
+    }
+
+    @Override
+    public void updateUserEmail(String email) {
+
+    }
+
+    @Override
+    public void updateUserPassword(String password) {
+
+    }
 }

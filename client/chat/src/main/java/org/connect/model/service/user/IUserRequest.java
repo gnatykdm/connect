@@ -8,4 +8,8 @@ public interface IUserRequest {
     User loginUserRequest(String username, String password) throws Exception;
     User getUserById(Integer userId) throws Exception;
     User getUserByUsername(String username) throws Exception;
+
+    void updateUserName(String name);
+    void updateUserEmail(String email);
+    void updateUserPassword(String password);
 }
