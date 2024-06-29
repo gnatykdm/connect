@@ -31,18 +31,6 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     @Transactional
-    public void updateUser(User user) {
-        logger.info("Updating user: {}", user);
-        try {
-            userRepository.save(user);
-        } catch (Exception e) {
-            logger.error("Error updating user: ", e);
-            throw e;
-        }
-    }
-
-    @Override
-    @Transactional
     public void deleteUserById(Integer userId) {
         logger.info("Deleting user with ID: {}", userId);
         try {
@@ -108,7 +96,26 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public Optional<Integer> getUserIdByUsername(String username) {
-        return userRepository.getUserIdByUsername(username);
+    public void updateUserName(Integer userId, String name) {
+        User user = userRepository.findByUserId(userId);
+        user.setUsername(name);
+
+        userRepository.save(user);
+    }
+
+    @Override
+    public void updateUserEmail(Integer userId, String email) {
+        User user = userRepository.findByUserId(userId);
+        user.setEmail(email);
+
+        userRepository.save(user);
+    }
+
+    @Override
+    public void updateUserPassword(Integer userId, String password) {
+        User user = userRepository.findByUserId(userId);
+        user.setPassword(password);
+
+        userRepository.save(user);
     }
 }

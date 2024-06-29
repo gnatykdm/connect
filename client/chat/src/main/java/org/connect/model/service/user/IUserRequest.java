@@ -9,7 +9,7 @@ public interface IUserRequest {
     User getUserById(Integer userId) throws Exception;
     User getUserByUsername(String username) throws Exception;
 
-    void updateUserName(String name);
-    void updateUserEmail(String email);
-    void updateUserPassword(String password);
+    void updateUserName(Integer id, String name);
+    void updateUserEmail(Integer id, String email);
+    void updateUserPassword(Integer id, String password);
 }

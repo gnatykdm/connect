@@ -18,15 +18,12 @@ import org.connect.model.service.user.IUserRequest;
 import org.connect.model.service.user.UserRequestClient;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 public class SettingController {
     @FXML private Label userName;
     @FXML private Label userEmail;
     @FXML private Label userPassword;
-    @FXML private Label activeUsers;
 
     @FXML private Button editName;
     @FXML private Button editEmail;
@@ -38,112 +35,100 @@ public class SettingController {
     @FXML private TextField emailField;
     @FXML private TextField passwordField;
 
-    private static final String EDIT_BUTTON_DEFAULT = "-fx-background-color: #8379e7; -fx-background-radius: 10px; -fx-text-fill: #ffffff; -fx-padding: 5px 10px;";
-    private static final String EDIT_BUTTON_HOVER = "-fx-background-color: #969de2; -fx-background-radius: 10px; -fx-text-fill: #ffffff; -fx-padding: 5px 10px;";
+    private static final String EDIT_BUTTON_DEFAULT = "-fx-background-color: #8379e7; -fx-background-radius: 5px; -fx-text-fill: #ffffff;";
+    private static final String EDIT_BUTTON_HOVER = "-fx-background-color: #969de2; -fx-background-radius: 5px; -fx-text-fill: #ffffff;";
 
-    private static final String LOGOUT_BUTTON_DEFAULT = "-fx-background-color: #8379e7; -fx-border-radius: 5px; -fx-text-fill: #ffffff; -fx-border-width: 2px; -fx-border-color:  #c1ff72; -fx-font-size: 14px;";
-    private static final String LOGOUT_BUTTON_HOVER = "-fx-background-color: #c1ff72; -fx-border-radius: 5px; -fx-text-fill: #ffffff; -fx-border-width: 2px; -fx-border-color:  #c1ff72; -fx-font-size: 14px;";
+    private static final String LOGOUT_BUTTON_DEFAULT = "-fx-background-color: #ff5555; -fx-background-radius: 10px; -fx-text-fill: #ffffff;";
+    private static final String LOGOUT_BUTTON_HOVER = "-fx-background-color: #ff7777; -fx-background-radius: 10px; -fx-text-fill: #ffffff;";
 
-    private static final String HOME_BUTTON_DEFAULT = "-fx-background-color: transparent; -fx-border-radius: 5px; -fx-text-fill: #ffffff; -fx-border-width: 2px; -fx-border-color:  #c1ff72; -fx-font-size: 14px;";
-    private static final String HOME_BUTTON_HOVER = "-fx-background-color: #c1ff72; -fx-border-radius: 5px; -fx-text-fill: #ffffff; -fx-border-width: 2px; -fx-border-color:  #c1ff72; -fx-font-size: 14px;";
+    private static final String HOME_BUTTON_DEFAULT = "-fx-background-color: transparent; -fx-border-radius: 5px; -fx-text-fill: #ffffff; -fx-border-width: 2px; -fx-border-color:  #c1ff72;";
+    private static final String HOME_BUTTON_HOVER = "-fx-background-color: #c1ff72; -fx-border-radius: 5px; -fx-text-fill: #ffffff; -fx-border-width: 2px; -fx-border-color:  #c1ff72;";
 
     private static final Logger logger  = Logger.getLogger(SettingController.class.getName());
 
     @Setter
     private User user = new User();
-    @Setter
-    List<ChatRoom> chatRooms = new ArrayList<>();
 
     private final IUserRequest userRequest = new UserRequestClient();
 
     public void initialize() {
-        userName.setText(user.getUsername());
-        userEmail.setText(user.getEmail());
-        userPassword.setText(user.getPassword());
-        activeUsers.setText(String.valueOf(chatRooms.size()));
+        editName.setOnMouseEntered(event -> editName.setStyle(EDIT_BUTTON_HOVER));
+        editName.setOnMouseExited(event -> editName.setStyle(EDIT_BUTTON_DEFAULT));
 
-        editName.setStyle(EDIT_BUTTON_DEFAULT);
-        editEmail.setStyle(EDIT_BUTTON_DEFAULT);
-        editPassword.setStyle(EDIT_BUTTON_DEFAULT);
-        logout.setStyle(LOGOUT_BUTTON_DEFAULT);
+        editEmail.setOnMouseEntered(event -> editEmail.setStyle(EDIT_BUTTON_HOVER));
+        editEmail.setOnMouseExited(event -> editEmail.setStyle(EDIT_BUTTON_DEFAULT));
 
-        editName.setOnMouseEntered(e -> editName.setStyle(EDIT_BUTTON_HOVER));
-        editName.setOnMouseExited(e -> editName.setStyle(EDIT_BUTTON_DEFAULT));
+        editPassword.setOnMouseEntered(event -> editPassword.setStyle(EDIT_BUTTON_HOVER));
+        editPassword.setOnMouseExited(event -> editPassword.setStyle(EDIT_BUTTON_DEFAULT));
 
-        editEmail.setOnMouseEntered(e -> editEmail.setStyle(EDIT_BUTTON_HOVER));
-        editEmail.setOnMouseExited(e -> editEmail.setStyle(EDIT_BUTTON_DEFAULT));
+        logout.setOnMouseEntered(event -> logout.setStyle(LOGOUT_BUTTON_HOVER));
+        logout.setOnMouseExited(event -> logout.setStyle(LOGOUT_BUTTON_DEFAULT));
 
-        editPassword.setOnMouseEntered(e -> editPassword.setStyle(EDIT_BUTTON_HOVER));
-        editPassword.setOnMouseExited(e -> editPassword.setStyle(EDIT_BUTTON_DEFAULT));
+        homeButton.setOnMouseEntered(event -> homeButton.setStyle(HOME_BUTTON_HOVER));
+        homeButton.setOnMouseExited(event -> homeButton.setStyle(HOME_BUTTON_DEFAULT));
+    }
 
-        homeButton.setOnMouseEntered(e -> homeButton.setStyle(HOME_BUTTON_HOVER));
-        homeButton.setOnMouseExited(e -> homeButton.setStyle(HOME_BUTTON_DEFAULT));
-
-        logout.setOnMouseEntered(e -> logout.setStyle(LOGOUT_BUTTON_HOVER));
-        logout.setOnMouseExited(e -> logout.setStyle(LOGOUT_BUTTON_DEFAULT));
+    public void updateUserData() {
+        userName.setText(user.getUsername() != null ? user.getUsername() : "N/A");
+        userEmail.setText(user.getEmail() != null ? user.getEmail() : "N/A");
+        userPassword.setText(user.getPassword() != null ? user.getPassword() : "N/A");
     }
 
     @FXML
-    public void editNameButton(ActionEvent event) {
-        String newName = nameField.getText();
-        userRequest.updateUserName(newName);
-        setUser(updateUserData());
-    }
-
-    @FXML
-    public void editEmailButton(ActionEvent event) {
-        String newEmail = emailField.getText();
-        userRequest.updateUserEmail(newEmail);
-        setUser(updateUserData());
-    }
-
-    @FXML
-    public void editPasswordButton(ActionEvent event) {
-        String newPassword = passwordField.getText();
-        userRequest.updateUserPassword(newPassword);
-        setUser(updateUserData());
-    }
-
-    @FXML
-    public void logoutButton(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        try {
-            loader.load();
-            ((Node) event.getSource()).getScene().getWindow().hide();
-
-            Stage stage = new Stage();
-            Scene scene = new Scene(loader.getRoot());
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            logger.info("Failed to load login.fxml");
+    private void editNameButton(ActionEvent event) {
+        String name = nameField.getText();
+        if (!nameField.getText().isEmpty()) {
+            user.setUsername(nameField.getText());
+            userRequest.updateUserName(user.getUserId(), name);
+            updateUserData();
+            nameField.clear();
         }
     }
 
     @FXML
-    public void switchToHome(ActionEvent event) {
+    private void editEmailButton(ActionEvent event) {
+        String email = emailField.getText();
+        if (!emailField.getText().isEmpty()) {
+            user.setEmail(emailField.getText());
+            userRequest.updateUserEmail(user.getUserId(), email);
+            updateUserData();
+            emailField.clear();
+        }
+    }
+
+    @FXML
+    private void editPasswordButton(ActionEvent event) {
+        String password = passwordField.getText();
+        if (!passwordField.getText().isEmpty()) {
+            user.setPassword(passwordField.getText());
+            userRequest.updateUserPassword(user.getUserId(), password);
+            updateUserData();
+            passwordField.clear();
+        }
+    }
+
+    @FXML
+    private void logoutButton(ActionEvent event) {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void switchToHome(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/connect/view/logviews/home.fxml"));
-            Parent parent = loader.load();
+            Parent root = loader.load();
 
-            ChatController controller = loader.getController();
-            controller.setUser(user);
+            ChatController chatController = loader.getController();
+            chatController.setUser(user);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(parent);
+            Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private User updateUserData() {
-        try {
-            return userRequest.getUserById(user.getUserId());
-        } catch (Exception e) {
-            return null;
+            logger.severe("Failed to load ChatView.fxml: " + e.getMessage());
         }
     }
 }

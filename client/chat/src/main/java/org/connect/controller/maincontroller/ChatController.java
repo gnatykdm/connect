@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import org.connect.controller.settings.AddUserController;
+import org.connect.controller.settings.SettingController;
 import org.connect.model.entities.ChatRoom;
 import org.connect.model.entities.Message;
 import org.connect.model.entities.User;
@@ -116,7 +117,7 @@ public class ChatController {
         Runnable task = () -> {
             LOGGER.info("Loading chat rooms for userId: " + user.getUserId());
             try {
-                final List<ChatRoom> getChatRooms = chatRoomRequest.getAllChatRooms(user.getUserId());
+                List<ChatRoom> getChatRooms = chatRoomRequest.getAllChatRooms(user.getUserId());
                 friends.addAll(getChatRooms);
                 Platform.runLater(() -> {
                     chatBox.getChildren().clear();
@@ -251,17 +252,8 @@ public class ChatController {
 
     @FXML
     private void switchPlusButton(ActionEvent event) {
-        switchScene("/org/connect/view/settingsview/adduser.fxml", event);
-    }
-
-    @FXML
-    private void switchToSettings(ActionEvent event) {
-        switchScene("/org/connect/view/settingsview/sett.fxml", event);
-    }
-
-    private void switchScene(String path, ActionEvent event) {
         stopExecutorService();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/connect/view/settingsview/adduser.fxml"));
         try {
             Parent parent = loader.load();
             AddUserController controller = loader.getController();
@@ -277,8 +269,23 @@ public class ChatController {
         }
     }
 
-    private Integer getReceiverId() {
-        return this.receiverId;
+    @FXML
+    private void switchToSettings(ActionEvent event) {
+        scheduledExecutor.shutdown();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/connect/view/settingsview/settings.fxml"));
+        try {
+            Parent parent = loader.load();
+            SettingController controller = loader.getController();
+            controller.setUser(user);
+            controller.updateUserData();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void stopExecutorService() {

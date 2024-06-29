@@ -55,4 +55,37 @@ public class UserController {
         User user = userService.getUserByUsername(username);
         return user != null ? ResponseEntity.ok(user) : ResponseEntity.notFound().build();
     }
+
+    @PostMapping("/update-name/{id}")
+    public ResponseEntity<String> updateUserName(HttpServletRequest req, @PathVariable Integer id) {
+        String userName = req.getParameter("username");
+
+        if (userName != null) {
+            userService.updateUserName(id, userName);
+            return ResponseEntity.ok("UserName was Update");
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/update-email/{id}")
+    public ResponseEntity<String> updateUserEmail(@PathVariable Integer id, HttpServletRequest req) {
+        String userEmail = req.getParameter("email");
+
+        if (userEmail != null) {
+            userService.updateUserName(id, userEmail);
+            return ResponseEntity.ok("UserEmail was Update");
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/update-password/{id}")
+    public ResponseEntity<String> updateUserPassword(@PathVariable Integer id, HttpServletRequest req) {
+        String userPassword = req.getParameter("password");
+
+        if (userPassword != null) {
+            userService.updateUserPassword(id, userPassword);
+            return ResponseEntity.ok("UserPassword was Update");
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

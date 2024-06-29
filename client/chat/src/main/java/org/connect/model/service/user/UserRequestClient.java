@@ -17,7 +17,7 @@ public class UserRequestClient implements IUserRequest {
 
     private static final Logger logger = Logger.getLogger(UserRequestClient.class.getName());
     private static final String BASE_URL = "http://localhost:8080/api/v1/auth";
-    private static final String USER_URL = "http://localhost:8080/api/v1/user-management/";
+    private static final String USER_URL = "http://localhost:8080/api/v1/user-management";
     private static final ObjectMapper obj = new ObjectMapper();
 
     static {
@@ -90,7 +90,7 @@ public class UserRequestClient implements IUserRequest {
 
     @Override
     public User getUserById(Integer userId) throws Exception {
-        URL url = new URL(USER_URL + userId);
+        URL url = new URL(USER_URL + "/" + userId);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         try {
@@ -114,7 +114,7 @@ public class UserRequestClient implements IUserRequest {
 
     @Override
     public User getUserByUsername(String username) throws Exception {
-        URL url = new URL(USER_URL + "find?username=" + username);
+        URL url = new URL(USER_URL + "/find?username=" + username);
         HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
         try {
@@ -137,17 +137,80 @@ public class UserRequestClient implements IUserRequest {
     }
 
     @Override
-    public void updateUserName(String name) {
+    public void updateUserName(Integer id, String name) {
+        HttpURLConnection connection = null;
+        try {
+            URL url = new URL(USER_URL + "/update-name/" + id);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);
 
+            String urlParameters = "username=" + name;
+            byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
+
+            try (OutputStream os = connection.getOutputStream()) {
+                os.write(postData);
+                logger.info(String.valueOf(connection.getResponseCode()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
     }
 
     @Override
-    public void updateUserEmail(String email) {
+    public void updateUserEmail(Integer id, String email) {
+        HttpURLConnection connection = null;
+        try {
+            URL url = new URL(USER_URL + "/update-email/" + id);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);
 
+            String urlParameters = "email=" + email;
+            byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
+
+            try (OutputStream os = connection.getOutputStream()) {
+                os.write(postData);
+                logger.info(String.valueOf(connection.getResponseCode()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
     }
 
     @Override
-    public void updateUserPassword(String password) {
+    public void updateUserPassword(Integer id, String password) {
+        HttpURLConnection connection = null;
+        try {
+            URL url = new URL(USER_URL + "/update-password/" + id);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);
 
+            String urlParameters = "password=" + password;
+            byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
+
+            try (OutputStream os = connection.getOutputStream()) {
+                os.write(postData);
+                logger.info(String.valueOf(connection.getResponseCode()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
     }
 }

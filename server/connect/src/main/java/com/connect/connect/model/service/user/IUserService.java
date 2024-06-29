@@ -9,8 +9,6 @@ import java.util.Optional;
 public interface IUserService {
     void createUser(User user);
 
-    void updateUser(User user);
-
     void deleteUserById(Integer userId);
 
     User getUserById(Integer userId);
@@ -21,5 +19,10 @@ public interface IUserService {
 
     boolean loginUserValidation(String userName, String userPassword);
 
-    Optional<Integer> getUserIdByUsername(String username);
+    void updateUserName(Integer userId, String name);
+
+    void updateUserEmail(Integer userId, String email);
+
+    void updateUserPassword(Integer userId, String password);
+
 }

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="" />
+    <list default="true" id="f7b63b2c-cbff-4866-9edf-739d60039d09" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../server/connect/src/main/java/com/connect/connect/model/service/user/UserServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -373,6 +377,11 @@
       <workItem from="1719600937571" duration="2995000" />
       <workItem from="1719608099443" duration="3127000" />
       <workItem from="1719658542461" duration="6557000" />
+      <workItem from="1719675171138" duration="140000" />
+      <workItem from="1719675349345" duration="3738000" />
+      <workItem from="1719679871143" duration="76000" />
+      <workItem from="1719679966003" duration="709000" />
+      <workItem from="1719680758983" duration="503000" />
     </task>
     <servers />
   </component>

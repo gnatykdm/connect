@@ -47,9 +47,6 @@ public class LoginController {
 
         User user = conn.loginUserRequest(name, password);
         if (user != null) {
-            dataValidator.setStyle("-fx-text-fill: #00FF00");
-            dataValidator.setText("Success");
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/connect/view/logviews/home.fxml"));
             Parent parent = loader.load();
             ChatController controller = loader.getController();
@@ -64,7 +61,7 @@ public class LoginController {
             userPassword.clear();
         } else {
             dataValidator.setStyle("-fx-text-fill: #FF0000");
-            dataValidator.setText("Invalid Data");
+            dataValidator.setText("Incorrect Name/Password");
         }
     }
 
