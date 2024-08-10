@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 class UserRequestClientTest {
 
-    private UserRequestClient userRequestClient;
+    private UserRequest userRequestClient;
 
     @BeforeEach
     public void setUp() {
-        userRequestClient = new UserRequestClient();
+        userRequestClient = new UserRequest();
     }
 
     @Test

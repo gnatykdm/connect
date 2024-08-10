@@ -1,3 +1,21 @@
+/*
+ * @author Gnatyk Dmytro
+ * This file is part of CONNECT.
+ *
+ * CONNECT is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * CONNECT is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CONNECT. If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package org.connect.controller.maincontroller;
 
 import javafx.application.Platform;
@@ -23,7 +41,7 @@ import org.connect.model.service.chatroom.IChatRoomRequest;
 import org.connect.model.service.message.IMessageRequest;
 import org.connect.model.service.message.MessageRequest;
 import org.connect.model.service.user.IUserRequest;
-import org.connect.model.service.user.UserRequestClient;
+import org.connect.model.service.user.UserRequest;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
@@ -48,20 +66,26 @@ public class ChatController {
 
     private final IChatRoomRequest chatRoomRequest = new ChatRoomRequest();
     private final IMessageRequest messageRequest = new MessageRequest();
-    private final IUserRequest userRequest = new UserRequestClient();
+    private final IUserRequest userRequest = new UserRequest();
 
     private final ScheduledExecutorService scheduledExecutor = Executors.newScheduledThreadPool(1);
 
     private static final Logger LOGGER = Logger.getLogger(ChatController.class.getName());
 
-    private static final String PLUS_BUTTON_DEFAULT = "-fx-background-color: #242424; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;";
-    private static final String PLUS_BUTTON_HOVER = "-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;";
+    private static final String PLUS_BUTTON_DEFAULT =
+            "-fx-background-color: #242424; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;";
+    private static final String PLUS_BUTTON_HOVER =
+            "-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;";
 
-    private static final String SETTINGS_BUTTON_DEFAULT = "-fx-background-color: #242424; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;";
-    private static final String SETTINGS_BUTTON_HOVER = "-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;";
+    private static final String SETTINGS_BUTTON_DEFAULT =
+            "-fx-background-color: #242424; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;";
+    private static final String SETTINGS_BUTTON_HOVER =
+            "-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-color: #c1ff72; -fx-border-radius: 5px;";
 
-    private static final String SEND_BUTTON_DEFAULT = "-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-background-radius: 10px;";
-    private static final String SEND_BUTTON_HOVER = "-fx-background-color: #242424; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-color: #c1ff72; -fx-background-radius: 10px;";
+    private static final String SEND_BUTTON_DEFAULT =
+            "-fx-background-color: #c1ff72; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-background-radius: 10px;";
+    private static final String SEND_BUTTON_HOVER =
+            "-fx-background-color: #242424; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-color: #c1ff72; -fx-background-radius: 10px;";
 
     private final List<ChatRoom> friends = new ArrayList<>();
     private Set<Integer> displayedMessageIds = new HashSet<>();
@@ -191,7 +215,7 @@ public class ChatController {
         this.user = user;
         if (user != null) {
             loadChatRooms();
-            usernameLabel.setText("@" + user.getUsername());
+            usernameLabel.setText("#" + user.getUsername());
         }
     }
 
